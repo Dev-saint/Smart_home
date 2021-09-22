@@ -141,6 +141,13 @@
   <ItemGroup>
     <ClCompile Include="Smart_home.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bathroom.h" />
+    <ClInclude Include="Bedroom.h" />
+    <ClInclude Include="Wine_vault.h" />
+    <ClInclude Include="Kitchen.h" />
+    <ClInclude Include="Toilet.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
