@@ -1,11 +1,12 @@
 #pragma once
 
-void air_temp_toil(int t); //Функция именения температуры воздуха в туалете
-void air_hum_toil(); //Функция изменения влажности воздуха в туалете
-void conc_co2_toil(); //Функция изменения концентрации CO2 в туалете
-void brightness_toil(); //Функция изменения яркости в туалете
+void air_temp_toil(float t); //Функция именения температуры воздуха в туалете
+void air_hum_toil(float hum); //Функция изменения влажности воздуха в туалете
+void conc_co2_toil(float co2); //Функция изменения концентрации CO2 в туалете
+void brightness_toil(int bright); //Функция изменения яркости в туалете
 void light_toil(); //Функция включения/выключения света в туалете
-void vent_speed_toil(); //Функция изменения скорости вентиляции в туалете
+void vent_speed_toil(int speed); //Функция изменения скорости вентиляции в туалете
+void menu_toil(); // Функция вызова меню параметров для туалета
 
 struct toilet
 {
