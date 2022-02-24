@@ -1,5 +1,6 @@
 #pragma once
 #include "Parametrs.h"
+#include "Bathroom.h"
 
 struct wine_vault
 {

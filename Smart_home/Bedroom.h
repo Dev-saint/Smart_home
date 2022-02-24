@@ -1,5 +1,6 @@
 #pragma once
 #include "Parametrs.h"
+#include "Kitchen.h"
 
 struct bedroom
 {
