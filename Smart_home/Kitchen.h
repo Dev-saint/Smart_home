@@ -1,4 +1,5 @@
 #pragma once
+#include "Parametrs.h"
 
 void air_temp_kitch(float t); //Функция именения температуры воздуха на кухне
 void air_hum_kitch(float hum); //Функция изменения влажности воздуха на кухне
@@ -11,11 +12,6 @@ void menu_kitch(); // Функция вызова меню параметров для кухни
 
 struct kitchen
 {
-    float air_temp; //Температура воздуха
-    float air_hum; //Влажность воздуха
     int coffee; //Приготовление кофе после сна
-    float conc_co2; //Концентрация CO2
-    int vent_speed; //Скорость вентиляции
-    int brightness; //Яркость света
-    int light; //Включение/выключение света
+    parametrs param_kitch;
 }kitch;

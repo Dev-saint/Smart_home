@@ -1,4 +1,5 @@
 #pragma once
+#include "Parametrs.h"
 
 void air_temp_toil(float t); //Функция именения температуры воздуха в туалете
 void air_hum_toil(float hum); //Функция изменения влажности воздуха в туалете
@@ -10,11 +11,6 @@ void menu_toil(); // Функция вызова меню параметров для туалета
 
 struct toilet
 {
-	float air_temp; //Температура воздуха
-	float air_hum; //Влажность воздуха
-	float conc_co2; //Концентрация CO2
-	int brightness; //Яркость света
-	int light; //Включение/выключение света
-	int vent_speed; //Скорость вентиляции
+	parametrs param_toil;
 	int flag_flushdwn; //Флаг автоматического смыва
 }toil;

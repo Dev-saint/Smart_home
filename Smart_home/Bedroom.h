@@ -1,4 +1,5 @@
 #pragma once
+#include "Parametrs.h"
 
 void air_temp_bed(float t); //Функция именения температуры воздуха в спальне
 void air_hum_bed(float hum); //Функция изменения влажности воздуха в спальне
@@ -10,11 +11,6 @@ void menu_bed(); // Функция вызова меню параметров для спальни
 
 struct bedroom
 {
-	float air_temp; //Температура воздуха
-	float air_hum; //Влажность воздуха
-	float conc_co2; //Концентрация CO2
-	int brightness; //Яркость света
-	int vent_speed; //Скорость вентиляции
-	int light; //Включение/выключение света
+	parametrs param_bed;
 	int flag_sleep; //Флаг сна (определяет, наступило ли время для сна)
 }bed;

@@ -1,4 +1,5 @@
 #pragma once
+#include "Parametrs.h"
 
 void air_temp_wine(float t); //Функция именения температуры воздуха в винном погребе
 void air_temp_wine_control(float t); //Функция контроля температуры в винном погребе
@@ -11,10 +12,5 @@ void menu_wine(); // Функция вызова меню параметров для винного погреба
 
 struct wine_vault
 {
-	float air_temp; //Температура воздуха
-	float air_hum; //Влажность воздуха
-	float conc_co2; //Концентрация CO2
-	int brightness; //Яркость света
-	int light; //Включение/выключение света
-	int vent_speed; //Скорость вентиляции
+	parametrs param_wine;
 }wine;

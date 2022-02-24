@@ -1,6 +1,7 @@
 #pragma once
+#include "Parametrs.h"
 
-void water_bath(); //Функция набора воды определенной температуры в ванную
+void water_bath(); //Функция набора воды в ванную
 void air_temp_bath(float t); //Функция именения температуры воздуха в ванной
 void air_hum_bath(float hum); //Функция изменения влажности воздуха в ванной
 void conc_co2_bath(float co2); //Функция изменения концентрации CO2 в ванной
@@ -12,12 +13,7 @@ void menu_bath(); // Функция вызова меню параметров для ванной
 struct bathroom
 {
     float water_temp; //Температура воды
-    float air_temp; //Температура воздуха
-    float air_hum; //Влажность воздуха
     int flag_water; //Флаг набора воды
-    float conc_co2; //Концентрация CO2
-    int brightness; //Яркость света
-    int light; //Включение/выключение света
-    int vent_speed; //Скорость вентиляции
+    parametrs param_bath;
 }bath;
 

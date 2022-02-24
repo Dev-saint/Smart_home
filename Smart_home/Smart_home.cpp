@@ -11,7 +11,7 @@
 using namespace std;
 
 
-void water_bath()
+void water_bath()   //Функция набора воды в ванную
 {
     if (bath.flag_water)
     {
@@ -23,133 +23,133 @@ void water_bath()
 
 void air_temp_bath(float t) //Функция именения температуры воздуха в ванной
 {
-    bath.air_temp = t;
-    cout << "Температура воздуха в ванной будет изменена до " << bath.air_temp << " °С" << endl;
+    bath.param_bath.air_temp = t;
+    cout << "Температура воздуха в ванной будет изменена до " << bath.param_bath.air_temp << " °С" << endl;
 }
 
 void air_temp_bed(float t) //Функция именения температуры воздуха в спальне
 {
-    bed.air_temp = t;
-    //cout << "Температура воздуха в спальне будет изменена до " << bed.air_temp << " °С" << endl;
+    bed.param_bed.air_temp = t;
+    cout << "Температура воздуха в спальне будет изменена до " << bed.param_bed.air_temp << " °С" << endl;
 }
 
 void air_temp_kitch(float t) //Функция именения температуры воздуха на кухне
 {
-    kitch.air_temp = t;
-    cout << "Температура воздуха на кухне будет изменена до " << kitch.air_temp << " °С" << endl;
+    kitch.param_kitch.air_temp = t;
+    cout << "Температура воздуха на кухне будет изменена до " << kitch.param_kitch.air_temp << " °С" << endl;
 }
 
 void air_temp_toil(float t) //Функция именения температуры воздуха в туалете
 {
-    toil.air_temp = t;
-    cout << "Температура воздуха в туалете будет изменена до " << toil.air_temp << " °С" << endl;
+    toil.param_toil.air_temp = t;
+    cout << "Температура воздуха в туалете будет изменена до " << toil.param_toil.air_temp << " °С" << endl;
 }
 
 void air_temp_wine(float t) //Функция именения температуры воздуха в винном погребе
 {
-    wine.air_temp = t;
-    cout << "Температура воздуха в винном погребе будет изменена до " << wine.air_temp << " °С" << endl;
+    wine.param_wine.air_temp = t;
+    cout << "Температура воздуха в винном погребе будет изменена до " << wine.param_wine.air_temp << " °С" << endl;
 }
 
 void air_temp_wine_control(float t) //Функция контроля температуры в винном погребе
 {
-    if (wine.air_temp != t)
-        wine.air_temp = t;
+    if (wine.param_wine.air_temp != t)
+        wine.param_wine.air_temp = t;
 }
 
 void air_hum_toil(float hum) //Функция изменения влажности воздуха в туалете
 {
-    toil.air_hum = hum;
-    cout << "Влажность воздуха в туалете будет изменена до " << toil.air_hum << "%" << endl;
+    toil.param_toil.air_hum = hum;
+    cout << "Влажность воздуха в туалете будет изменена до " << toil.param_toil.air_hum << "%" << endl;
 }
 
 void air_hum_kitch(float hum) //Функция именения влажности воздуха на кухне
 {
-    kitch.air_hum = hum;
-    cout << "Влажность воздуха на кухне будет изменена до " << kitch.air_hum << "%" << endl;
+    kitch.param_kitch.air_hum = hum;
+    cout << "Влажность воздуха на кухне будет изменена до " << kitch.param_kitch.air_hum << "%" << endl;
 }
 
 void air_hum_bed(float hum) //Функция именения влажности воздуха в спальне
 {
-    bed.air_hum = hum;
-    cout << "Влажность воздуха в спальне будет изменена до " << bed.air_hum << "%" << endl;
+    bed.param_bed.air_hum = hum;
+    cout << "Влажность воздуха в спальне будет изменена до " << bed.param_bed.air_hum << "%" << endl;
 }
 
 void air_hum_bath(float hum) //Функция именения влажности воздуха в ванной
 {
-    bath.air_hum = hum;
-    cout << "Влажность воздуха в ванной будет изменена до " << bath.air_hum << "%" << endl;
+    bath.param_bath.air_hum = hum;
+    cout << "Влажность воздуха в ванной будет изменена до " << bath.param_bath.air_hum << "%" << endl;
 }
 
 void air_hum_wine(float hum) //Функция именения влажности воздуха в винном погребе
 {
-    wine.air_hum = hum;
-    cout << "Влажность воздуха в винном погребе будет изменена до " << wine.air_hum << "%" << endl;
+    wine.param_wine.air_hum = hum;
+    cout << "Влажность воздуха в винном погребе будет изменена до " << wine.param_wine.air_hum << "%" << endl;
 }
 
 void conc_co2_toil(float co2) //Функция изменения концентрации co2 в туалете
 {
-    toil.conc_co2 = co2;
-    cout << "Концентрация CO2 в туалете будет изменена до " << toil.conc_co2 << "%" << endl;
+    toil.param_toil.conc_co2 = co2;
+    cout << "Концентрация CO2 в туалете будет изменена до " << toil.param_toil.conc_co2 << "%" << endl;
 }
 
 void conc_co2_kitch(float co2) //Функция изменения концентрации co2 на кухне
 {
-    kitch.conc_co2 = co2;
-    cout << "Концентрация CO2 на кухне будет изменена до " << kitch.conc_co2 << "%" << endl;
+    kitch.param_kitch.conc_co2 = co2;
+    cout << "Концентрация CO2 на кухне будет изменена до " << kitch.param_kitch.conc_co2 << "%" << endl;
 }
 
 void conc_co2_bed(float co2) //Функция изменения концентрации co2 в спальне
 {
-    bed.conc_co2 = co2;
-    cout << "Концентрация CO2 в ванной будет изменена до " << bed.conc_co2 << "%" << endl;
+    bed.param_bed.conc_co2 = co2;
+    cout << "Концентрация CO2 в ванной будет изменена до " << bed.param_bed.conc_co2 << "%" << endl;
 }
 
 void conc_co2_bath(float co2) //Функция изменения концентрации co2 в ванной
 {
-    bath.conc_co2 = co2;
-    cout << "Концентрация CO2 в ванной будет изменена до " << bath.conc_co2 << "%" << endl;
+    bath.param_bath.conc_co2 = co2;
+    cout << "Концентрация CO2 в ванной будет изменена до " << bath.param_bath.conc_co2 << "%" << endl;
 }
 
 void conc_co2_wine(float co2) //Функция изменения концентрации co2 в винном погребе
 {
-    wine.conc_co2 = co2;
-    cout << "Концентрация CO2 в винном погребе будет изменена до " << wine.conc_co2 << "%" << endl;
+    wine.param_wine.conc_co2 = co2;
+    cout << "Концентрация CO2 в винном погребе будет изменена до " << wine.param_wine.conc_co2 << "%" << endl;
 }
 
 void brightness_toil(int bright) //Функция изменения яркости в туалете
 {
-    toil.brightness = bright;
-    cout << "Яркость света в туалете будет изменена до " << toil.brightness << "%" << endl;
+    toil.param_toil.brightness = bright;
+    cout << "Яркость света в туалете будет изменена до " << toil.param_toil.brightness << "%" << endl;
 }
 
 void brightness_kitch(int bright) //Функция изменения яркости на кухне
 {
-    kitch.brightness = bright;
-    cout << "Яркость света на кухне будет изменена до " << kitch.brightness << "%" << endl;
+    kitch.param_kitch.brightness = bright;
+    cout << "Яркость света на кухне будет изменена до " << kitch.param_kitch.brightness << "%" << endl;
 }
 
 void brightness_bed(int bright) //Функция изменения яркости в спальне
 {
-    bed.brightness = bright;
-    cout << "Яркость света в спальне будет изменена до " << bed.brightness << "%" << endl;
+    bed.param_bed.brightness = bright;
+    cout << "Яркость света в спальне будет изменена до " << bed.param_bed.brightness << "%" << endl;
 }
 
 void brightness_bath(int bright) //Функция изменения яркости в ванной
 {
-    bath.brightness = bright;
-    cout << "Яркость света в ванной будет изменена до " << bath.brightness << "%" << endl;
+    bath.param_bath.brightness = bright;
+    cout << "Яркость света в ванной будет изменена до " << bath.param_bath.brightness << "%" << endl;
 }
 
 void brightness_wine(int bright) //Функция изменения яркости в винном погребе
 {
-    wine.brightness = bright;
-    cout << "Яркость света в винном погребе будет изменена до " << wine.brightness << "%" << endl;
+    wine.param_wine.brightness = bright;
+    cout << "Яркость света в винном погребе будет изменена до " << wine.param_wine.brightness << "%" << endl;
 }
 
 void light_toil() //Функция включения/выключения света в туалете
 {
-    if (toil.light)
+    if (toil.param_toil.light)
         cout << "Свет в туалете включен" << endl;
     else
         cout << "Свет в туалете выключен" << endl;
@@ -157,7 +157,7 @@ void light_toil() //Функция включения/выключения св�
 
 void light_kitch() //Функция включения/выключения света на кухне
 {
-    if (kitch.light)
+    if (kitch.param_kitch.light)
         cout << "Свет на кухне включен" << endl;
     else
         cout << "Свет на кухне выключен" << endl;
@@ -165,7 +165,7 @@ void light_kitch() //Функция включения/выключения св
 
 void light_bed() //Функция включения/выключения света в спальне
 {
-    if (bed.light)
+    if (bed.param_bed.light)
         cout << "Свет в спальне включен" << endl;
     else
         cout << "Свет в спальне выключен" << endl;
@@ -173,7 +173,7 @@ void light_bed() //Функция включения/выключения све
 
 void light_bath() //Функция включения/выключения света в ванную
 {
-    if (bath.light)
+    if (bath.param_bath.light)
         cout << "Свет в ванной включен" << endl;
     else
         cout << "Свет в ванной выключен" << endl;
@@ -181,7 +181,7 @@ void light_bath() //Функция включения/выключения св�
 
 void light_wine() //Функция включения/выключения света в винном погребе
 {
-    if (wine.light)
+    if (wine.param_wine.light)
         cout << "Свет в винном погребе включен" << endl;
     else
         cout << "Свет в винном погребе выключен" << endl;
@@ -189,32 +189,32 @@ void light_wine() //Функция включения/выключения св�
 
 void vent_speed_toil(int speed) //Функция изменения скорости вентиляции в туалете
 {
-    toil.vent_speed = speed;
-    cout << "Скорость вентиляции в туалете будет изменена до " << toil.vent_speed << "%" << endl;
+    toil.param_toil.vent_speed = speed;
+    cout << "Скорость вентиляции в туалете будет изменена до " << toil.param_toil.vent_speed << "%" << endl;
 }
 
 void vent_speed_kitch(int speed) //Функция изменения скорости вентиляции на кухне
 {
-    kitch.vent_speed = speed;
-    cout << "Скорость вентиляции на кухне будет изменена до " << kitch.vent_speed << "%" << endl;
+    kitch.param_kitch.vent_speed = speed;
+    cout << "Скорость вентиляции на кухне будет изменена до " << kitch.param_kitch.vent_speed << "%" << endl;
 }
 
 void vent_speed_bed(int speed) //Функция изменения скорости вентиляции в спальне
 {
-    bed.vent_speed = speed;
-    cout << "Скорость вентиляции в спальне будет изменена до " << bed.vent_speed << "%" << endl;
+    bed.param_bed.vent_speed = speed;
+    cout << "Скорость вентиляции в спальне будет изменена до " << bed.param_bed.vent_speed << "%" << endl;
 }
 
 void vent_speed_bath(int speed) //Функция изменения скорости вентиляции в ванной
 {
-    bath.vent_speed = speed;
-    cout << "Скорость вентиляции в ванной будет изменена до " << bath.vent_speed << "%" << endl;
+    bath.param_bath.vent_speed = speed;
+    cout << "Скорость вентиляции в ванной будет изменена до " << bath.param_bath.vent_speed << "%" << endl;
 }
 
 void vent_speed_wine(int speed) //Функция изменения скорости вентиляции в винном погребе
 {
-    wine.vent_speed = speed;
-    cout << "Скорость вентиляции в винном погребе будет изменена до " << wine.vent_speed << "%" << endl;
+    wine.param_wine.vent_speed = speed;
+    cout << "Скорость вентиляции в винном погребе будет изменена до " << wine.param_wine.vent_speed << "%" << endl;
 }
 
 void menu_toil() // Функция вызова меню параметров для туалета
@@ -340,9 +340,9 @@ int main()
                                 {
                                     cout << "Включить (1) или выключить (0) свет?" << endl;
                                     cin >> light;
-                                    if (light == 1 && toil.light != 1)
+                                    if (light == 1 && toil.param_toil.light != 1)
                                     {
-                                        toil.light = 1;
+                                        toil.param_toil.light = 1;
                                         light_toil();
                                     }
                                     else
@@ -352,24 +352,24 @@ int main()
                                             cin >> light;
                                             if (light == 1)
                                             {
-                                                toil.light = 0;
+                                                toil.param_toil.light = 0;
                                                 light_toil();
                                             }
                                         }
                                         else
-                                            if (toil.light == 0)
+                                            if (toil.param_toil.light == 0)
                                             {
                                                 cout << "Свет уже выключен. Включить свет? Да(1)/Нет(0)" << endl;
                                                 cin >> light;
                                                 if (light == 1)
                                                 {
-                                                    toil.light = 1;
+                                                    toil.param_toil.light = 1;
                                                     light_toil();
                                                 }
                                             }
                                             else
                                             {
-                                                toil.light = 0;
+                                                toil.param_toil.light = 0;
                                                 light_toil();
                                             }
                                 }
@@ -425,9 +425,9 @@ int main()
                                     {
                                         cout << "Включить (1) или выключить (0) свет?" << endl;
                                         cin >> light;
-                                        if (light == 1 && kitch.light != 1)
+                                        if (light == 1 && kitch.param_kitch.light != 1)
                                         {
-                                            kitch.light = 1;
+                                            kitch.param_kitch.light = 1;
                                             light_kitch();
                                         }
                                         else
@@ -437,24 +437,24 @@ int main()
                                                 cin >> light;
                                                 if (light == 1)
                                                 {
-                                                    kitch.light = 0;
+                                                    kitch.param_kitch.light = 0;
                                                     light_kitch();
                                                 }
                                             }
                                             else
-                                                if (kitch.light == 0)
+                                                if (kitch.param_kitch.light == 0)
                                                 {
                                                     cout << "Свет уже выключен. Включить свет? Да(1)/Нет(0)" << endl;
                                                     cin >> light;
                                                     if (light == 1)
                                                     {
-                                                        kitch.light = 1;
+                                                        kitch.param_kitch.light = 1;
                                                         light_kitch();
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    kitch.light = 0;
+                                                    kitch.param_kitch.light = 0;
                                                     light_kitch();
                                                 }
                                     }
@@ -517,9 +517,9 @@ int main()
                                         {
                                             cout << "Включить (1) или выключить (0) свет?" << endl;
                                             cin >> light;
-                                            if (light == 1 && bed.light != 1)
+                                            if (light == 1 && bed.param_bed.light != 1)
                                             {
-                                                bed.light = 1;
+                                                bed.param_bed.light = 1;
                                                 light_bed();
                                             }
                                             else
@@ -529,24 +529,24 @@ int main()
                                                     cin >> light;
                                                     if (light == 1)
                                                     {
-                                                        bed.light = 0;
+                                                        bed.param_bed.light = 0;
                                                         light_bed();
                                                     }
                                                 }
                                                 else
-                                                    if (toil.light == 0)
+                                                    if (bed.param_bed.light == 0)
                                                     {
                                                         cout << "Свет уже выключен. Включить свет? Да(1)/Нет(0)" << endl;
                                                         cin >> light;
                                                         if (light == 1)
                                                         {
-                                                            bed.light = 1;
+                                                            bed.param_bed.light = 1;
                                                             light_bed();
                                                         }
                                                     }
                                                     else
                                                     {
-                                                        bed.light = 0;
+                                                        bed.param_bed.light = 0;
                                                         light_bed();
                                                     }
                                         }
@@ -602,9 +602,9 @@ int main()
                                             {
                                                 cout << "Включить (1) или выключить (0) свет?" << endl;
                                                 cin >> light;
-                                                if (light == 1 && bath.light != 1)
+                                                if (light == 1 && bath.param_bath.light != 1)
                                                 {
-                                                    bath.light = 1;
+                                                    bath.param_bath.light = 1;
                                                     light_bath();
                                                 }
                                                 else
@@ -614,24 +614,24 @@ int main()
                                                         cin >> light;
                                                         if (light == 1)
                                                         {
-                                                            bath.light = 0;
+                                                            bath.param_bath.light = 0;
                                                             light_bath();
                                                         }
                                                     }
                                                     else
-                                                        if (bath.light == 0)
+                                                        if (bath.param_bath.light == 0)
                                                         {
                                                             cout << "Свет уже выключен. Включить свет? Да(1)/Нет(0)" << endl;
                                                             cin >> light;
                                                             if (light == 1)
                                                             {
-                                                                bath.light = 1;
+                                                                bath.param_bath.light = 1;
                                                                 light_bath();
                                                             }
                                                         }
                                                         else
                                                         {
-                                                            bath.light = 0;
+                                                            bath.param_bath.light = 0;
                                                             light_bath();
                                                         }
                                             }
@@ -694,9 +694,9 @@ int main()
                                                 {
                                                     cout << "Включить (1) или выключить (0) свет?" << endl;
                                                     cin >> light;
-                                                    if (light == 1 && wine.light != 1)
+                                                    if (light == 1 && wine.param_wine.light != 1)
                                                     {
-                                                        wine.light = 1;
+                                                        wine.param_wine.light = 1;
                                                         light_wine();
                                                     }
                                                     else
@@ -706,24 +706,24 @@ int main()
                                                             cin >> light;
                                                             if (light == 1)
                                                             {
-                                                                wine.light = 0;
+                                                                wine.param_wine.light = 0;
                                                                 light_wine();
                                                             }
                                                         }
                                                         else
-                                                            if (toil.light == 0)
+                                                            if (wine.param_wine.light == 0)
                                                             {
                                                                 cout << "Свет уже выключен. Включить свет? Да(1)/Нет(0)" << endl;
                                                                 cin >> light;
                                                                 if (light == 1)
                                                                 {
-                                                                    wine.light = 1;
+                                                                    wine.param_wine.light = 1;
                                                                     light_wine();
                                                                 }
                                                             }
                                                             else
                                                             {
-                                                                wine.light = 0;
+                                                                wine.param_wine.light = 0;
                                                                 light_wine();
                                                             }
                                                 }
