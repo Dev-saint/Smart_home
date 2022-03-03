@@ -4,7 +4,6 @@
 
 struct bathroom
 {
-    float water_temp; //Температура воды
     int flag_water; //Флаг набора воды
     parametrs param_bath;
 };

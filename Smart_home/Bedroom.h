@@ -5,7 +5,6 @@
 struct bedroom
 {
 	parametrs param_bed;
-	int flag_sleep; //Флаг сна (определяет, наступило ли время для сна)
 };
 
 void air_temp_bed(bedroom bed1,float t); //Функция именения температуры воздуха в спальне

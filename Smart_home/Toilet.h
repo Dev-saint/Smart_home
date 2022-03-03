@@ -3,8 +3,7 @@
 
 struct toilet
 {
-	parametrs param_toil;
-	int flag_flushdwn; //Флаг автоматического смыва
+	parametrs param_toil; //Параметры туалета
 };
 
 void air_temp_toil(toilet toil1,float t); //Функция именения температуры воздуха в туалете
