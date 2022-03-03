@@ -16,6 +16,11 @@ int main()
     bedroom* pbed = new bedroom;
     bathroom* pbath = new bathroom;
     wine_vault* pwine = new wine_vault;
+    bed.param_bed.light = 0;
+    toil.param_toil.light = 0;
+    kitch.param_kitch.light = 0;
+    bath.param_bath.light = 0;
+    wine.param_wine.light = 0;
     cout << "Система умного дома" << endl;
     do
     {
