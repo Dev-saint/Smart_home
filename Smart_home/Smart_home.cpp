@@ -17,6 +17,7 @@ int main()
     bathroom* pbath = new bathroom;
     wine_vault* pwine = new wine_vault;
     toilet* ktoil = new toilet[3];
+    toilet* mas_toil[5];
     cout << "Система умного дома" << endl;
     do
     {
@@ -514,10 +515,19 @@ int main()
                             pwine->Set_vent_speed_wine(55);
                             cout << "Скорость вентиляции в винном погребе будет изменена до " << pwine->Get_vent_speed_wine() << " %" << endl;
                             int s = 0;
+                            cout << "*************************Динамический массив объектов класса Туалет**************************" << endl;
                             for (i = 0; i < 3; i++)
                             {
                                 ktoil[i].Set_vent_speed_toil(20*(i+1));
                                 cout << "Скорость вентиляции в туалете №" << i + 1 << " = " << ktoil[i].Get_vent_speed_toil() << endl;
+                            }
+                            cout << "*************************Массив динамических объектов класса Туалет**************************" << endl;
+
+                            for (int i = 0; i < 5; i++)
+                            {
+                                mas_toil[i] = new toilet;
+                                mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 % (i + 1), 1, 80 % (i + 3));
+                                mas_toil[i]->OutToil();
                             }
                         }
     } while (f_menu_rooms);
@@ -527,4 +537,5 @@ int main()
     delete pbed;
     delete pwine;
     delete[] ktoil;
+    delete[] mas_toil;
 }
