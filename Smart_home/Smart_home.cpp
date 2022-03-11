@@ -526,7 +526,8 @@ int main()
                             for (int i = 0; i < 5; i++)
                             {
                                 mas_toil[i] = new toilet;
-                                mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 % (i + 1), 1, 80 % (i + 3));
+                                cout << endl << "Туалет №" << i + 1 << endl;
+                                mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 / (i + 1), 1, 80 / (i + 3));
                                 mas_toil[i]->OutToil();
                             }
                         }
@@ -537,5 +538,5 @@ int main()
     delete pbed;
     delete pwine;
     delete[] ktoil;
-    delete[] mas_toil;
+    system("pause");
 }
