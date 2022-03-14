@@ -38,6 +38,9 @@ public:
 	void OutBath();
 
 	void water_bath(); //Функция набора воды в ванную
+
+	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
+	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);
 };
 
 void menu_bath(); // Функция вызова меню параметров для ванной

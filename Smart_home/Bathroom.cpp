@@ -52,7 +52,7 @@ int bathroom::Get_vent_speed_bath()
 
 int bathroom::Get_flag_water()
 {
-    return Get_flag_water();
+    return this->flag_water;
 }
 
 //Функции инициализации полей
@@ -128,4 +128,13 @@ void bathroom::water_bath()   //Функция набора воды в ванную
         Sleep(5000);
         cout << "Вода набрана!" << endl;
     }
+}
+
+//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
+void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp)
+{
+    toil.param_toil.Set_air_temp(temp);
+    kitch.param_kitch.Set_air_temp(temp);
+    bed.param_bed.Set_air_temp(temp);
+    bath.param_bath.Set_air_temp(temp);
 }

@@ -33,6 +33,9 @@ public:
 
 	//Вывод параметров спальни на экран
 	void OutBed();
+
+	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
+	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);
 };
 
 void menu_bed(); // Функция вызова меню параметров для спальни

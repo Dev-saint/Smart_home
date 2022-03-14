@@ -48,6 +48,37 @@ int toilet::Get_vent_speed_toil()
     return param_toil.Get_vent_speed();
 }
 
+// Функции получения данных из полей через указатель
+void toilet::Get_air_temp_toil_point(float* temp)
+{
+    *temp = param_toil.Get_air_temp();
+}
+
+void toilet::Get_air_hum_toil_point(float* hum)
+{
+    *hum = param_toil.Get_air_hum();
+}
+
+void toilet::Get_conc_co2_toil_point(float* co2)
+{
+    *co2 = param_toil.Get_conc_co2();
+}
+
+void toilet::Get_brightness_toil_point(int* bright)
+{
+    *bright = param_toil.Get_brightness();
+}
+
+void toilet::Get_light_toil_point(int* l)
+{
+    *l = param_toil.Get_light();
+}
+
+void toilet::Get_vent_speed_toil_point(int* speed)
+{
+    *speed = param_toil.Get_vent_speed();
+}
+
 //Функции инициализации полей
 void toilet::Set_air_temp_toil(float temp)
 {

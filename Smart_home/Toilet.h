@@ -1,6 +1,10 @@
 #pragma once
 #include "Parametrs.h"
 
+class kitchen;
+class bedroom;
+class bathroom;
+
 class toilet
 {
 private:
@@ -16,6 +20,14 @@ public:
 	int Get_brightness_toil();
 	int Get_light_toil();
 	int Get_vent_speed_toil();
+
+	// Функции получения данных из полей через указатель
+	void Get_air_temp_toil_point(float* temp);
+	void Get_air_hum_toil_point(float* hum);
+	void Get_conc_co2_toil_point(float* co2);
+	void Get_brightness_toil_point(int* bright);
+	void Get_light_toil_point(int* l);
+	void Get_vent_speed_toil_point(int* speed);
 
 	//Функции инициализации полей
 	void Set_air_temp_toil(float temp);
@@ -33,6 +45,9 @@ public:
 	
 	//Вывод параметров туалета на экран
 	void OutToil();
+
+	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
+	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);
 };
 
 void menu_toil(); // Функция вызова меню параметров для туалета

@@ -1,5 +1,8 @@
 ﻿#include "Wine_vault.h"
 
+// Инициализация статическоко компанента (указателя):
+parametrs* parametrs::lastPar = NULL;
+
 int main()
 {
     system("chcp 1251");
@@ -530,6 +533,103 @@ int main()
                                 mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 / (i + 1), 1, 80 / (i + 3));
                                 mas_toil[i]->OutToil();
                             }
+
+                            cout << "1)" << endl;
+                            cout << "=================================================================" << endl;
+                            cout << "Тест возврата значений из метода класса Parametrs через ссылку (&)" << endl;
+                            parametrs param[4];
+                            param[0].Set_parametrs(20, 50, 10, 50, 1, 30);
+
+                            float temperature; float& t = temperature; param[0].Get_air_temp_link(t);
+                            float humidity; float& h = humidity; param[0].Get_air_hum_link(h);
+                            float concentration; float& c = concentration; param[0].Get_conc_co2_link(c);
+                            int bright; int& b = bright; param[0].Get_brightness_link(b);
+                            int ligh; int& l = ligh; param[0].Get_light_link(l);
+                            int spd; int& sp = spd; param[0].Get_vent_speed_link(sp);
+
+                            cout << t << endl;
+                            cout << h << endl;
+                            cout << c << endl;
+                            cout << b << endl;
+                            cout << l << endl;
+                            cout << sp << endl;
+
+                            cout << "\n" << endl;
+
+                            cout << "Тест возврата значений из метода класса Toilet через указатель (*)" << endl;
+                            toilet toil_p;
+                            toil_p.Set_parametrs_toil(20, 50, 10, 50, 1, 30);
+
+                            float* temp_p = new float; toil_p.Get_air_temp_toil_point(temp_p);
+                            float* hum_p = new float; toil_p.Get_air_hum_toil_point(hum_p);
+                            float* co2_p = new float; toil_p.Get_conc_co2_toil_point(co2_p);
+                            int* bright_p = new int; toil_p.Get_brightness_toil_point(bright_p);
+                            int* light_p = new int; toil_p.Get_light_toil_point(light_p);
+                            int* speed_p = new int; toil_p.Get_vent_speed_toil_point(speed_p);
+
+                            cout << *temp_p << endl;
+                            cout << *hum_p << endl;
+                            cout << *co2_p << endl;
+                            cout << *bright_p << endl;
+                            cout << *light_p << endl;
+                            cout << *speed_p << endl;
+
+                            cout << "\n\n" << endl;
+
+                            cout << "2)" << endl;
+                            cout << "=================================================================" << endl;
+                            cout << "Тест списка температур с использованием указателя \'this\'" << endl;
+
+                            // Задание полей температуры объектов класса parametrs:
+                            param[0].Set_air_temp(1);
+                            param[1].Set_air_temp(2);
+                            param[2].Set_air_temp(3);
+                            param[3].Set_air_temp(4);
+
+                            // Вызов статической компанентной функции:
+                            parametrs::reprint();
+
+                            // Включение созданных компанентов в двусвязанный список:
+                            param[0].Add(); param[1].Add(); param[2].Add(); param[3].Add();
+
+                            // Печать в обратном порядке значений элементов списка:
+                            parametrs::reprint();
+
+                            cout << endl;
+
+                            cout << "3)" << endl;
+                            cout << "=================================================================" << endl;
+                            cout << "Дружественная функция задания температур классов \n \'туалет\' toilet, \'кухня\' kitchen, "
+                                << "\'спальня\' bedroom и \'ванная\' bathroom:" << endl;
+
+                            temp_set_all(toil, kitch, bed, bath, 20);
+                            cout << "\nТемпература в туалете: " << toil.Get_air_temp_toil() << endl;
+                            cout << "\nТемпература на кухне: " << kitch.Get_air_temp_kitch() << endl;
+                            cout << "\nТемпература в спальне: " << bed.Get_air_temp_bed() << endl;
+                            cout << "\nТемпература в ванной: " << bath.Get_air_temp_bath() << endl;
+
+                            cout << "\n\n" << endl;
+
+                            cout << "4)" << endl;
+                            cout << "=================================================================" << endl;
+                            cout << "Перегрузка оператора \'+\' для класса \'параметры\' parametrs" << endl;
+
+                            parametrs parNorm;
+                            parNorm.Set_parametrs(20, 50, 10, 60, 0, 0);
+                            cout << "Прибавим к температуре объекта выше 5 градусов:" << endl;
+                            parNorm = parNorm + 5;
+                            cout << "Температура: " << parNorm.Get_air_temp() << endl;
+                            cout << "\n" << endl;
+                            cout << "Перегрузка оператора \'++\' (два варианта, префиксный и постфиксный) \n для класса \'параметры\' parametrs" << endl;
+                            parNorm.Set_air_temp(20);
+                            cout << "Температура: " << parNorm.Get_air_temp() << endl;
+                            cout << "\nИспользование оператора \'++\' (префиксный):" << endl;
+                            ++parNorm;
+                            cout << "Температура: " << parNorm.Get_air_temp() << endl;
+                            cout << "\nИспользование оператора \'++\' (постфиксный):" << endl;
+                            parNorm++;
+                            cout << "Температура: " << parNorm.Get_air_temp() << endl;
+                            cout << "\n\n" << endl;
                         }
     } while (f_menu_rooms);
     delete pkitch;
