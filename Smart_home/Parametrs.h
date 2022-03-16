@@ -68,4 +68,6 @@ public:
 	// Вывод на дисплей содержимого списка
 	static void reprint(void);
 	
+	// Создание нового списка
+	void NewList();
 };

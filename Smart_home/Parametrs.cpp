@@ -121,6 +121,13 @@ void parametrs::Set_parametrs(float temp, float hum, float co2, int bright, int 
 	this->vent_speed = speed;
 }
 
+// Создание нового списка
+void parametrs::NewList()
+{
+	lastPar = NULL;
+}
+
+
 // Добавление элемента в конец списка
 void parametrs::Add(void)
 {
