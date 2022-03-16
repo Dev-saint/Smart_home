@@ -1,4 +1,5 @@
 ﻿#include "Wine_vault.h"
+#include "Smart_home.h"
 
 // Инициализация статическоко компанента (указателя):
 parametrs* parametrs::lastPar = NULL;
@@ -925,6 +926,31 @@ int main()
     }
 
     cout << "Введенная скорость вентиляции: " << param_try.Get_vent_speed() << endl;
+
+    toilet toilArr1[3];
+    toilet toilArr2[2][2];
+
+    for (j = 0; j < 3; j++)
+        toilArr1[j] = toilet(20 + j);
+
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 2; j++)
+            toilArr2[i][j] = 20 - j;
+    //=================================
+
+    // Вывод
+    //=================================
+    cout << "\nОдномерный массив размером [3]" << endl;
+    for (i = 0; i < 3; i++)
+        toilArr1[i].DisplayToil();
+
+    cout << endl;
+    cout << "Двумерный массив размером [2][2]" << endl;
+    for (i = 0; i < 2; i++)
+        for (j = 0; j < 2; j++)
+            toilArr2[i][j].DisplayToil();
+    //=================================
+
 
     system("pause");
 }

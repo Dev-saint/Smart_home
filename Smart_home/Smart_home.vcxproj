@@ -151,6 +151,7 @@
     <ClInclude Include="Bathroom.h" />
     <ClInclude Include="Bedroom.h" />
     <ClInclude Include="Parametrs.h" />
+    <ClInclude Include="Smart_home.h" />
     <ClInclude Include="Wine_vault.h" />
     <ClInclude Include="Kitchen.h" />
     <ClInclude Include="Toilet.h" />
