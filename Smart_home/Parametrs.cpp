@@ -1,5 +1,119 @@
 #include "Parametrs.h"
 
+// Проверка числа на подходящее для температуры
+bool parametrs::IsRightTemp(float temp)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (temp < -20 || temp > 40)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
+// Проверка числа на подходящее для влажности
+bool parametrs::IsRightHum(float hum)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (hum < 0 || hum > 100)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
+// Проверка числа на подходящее для концентрации CO2
+bool parametrs::IsRightCO2(float co2)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (co2 < 0 || co2 > 50)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
+// Проверка числа на подходящее для яркости света
+bool parametrs::IsRightBright(int bright)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (bright < 0 || bright > 100)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
+// Проверка числа на подходящее для флажка света
+bool parametrs::IsRightLight(int l)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (l < 0 || l > 1)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
+// Проверка числа на подходящее для скорости вентиляции
+bool parametrs::IsRightSpeed(int speed)
+{
+	bool res = true;
+	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
+	{
+		if (speed < 0 || speed > 100)           // Если пользователь ввел неверное число, то выбрасывается исключение
+			throw "Incorrect value.";       // выбрасывается исключение типа const char*
+	}
+	catch (const char* exception)           // обработчик исключений типа const char*
+	{
+		std::cerr << "Error: " << exception << '\n';
+		res = false;
+		return res;
+	}
+
+	return res;
+}
+
 //Конструктор
 parametrs::parametrs()
 {
@@ -7,30 +121,37 @@ parametrs::parametrs()
 	air_hum = 0;
 	conc_co2 = 0;
 	brightness = 0;
-	light = 0;
+	light = 2;
 	vent_speed = 0;
 }
 
 //Конструктор с одним параметром
 parametrs::parametrs(float temp)
 {
-	air_temp = temp;
+	if (IsRightTemp(temp))
+		air_temp = temp;
 	air_hum = 0;
 	conc_co2 = 0;
 	brightness = 0;
-	light = 0;
+	light = 2;
 	vent_speed = 0;
 }
 
 //Конструктор с параметрами
 parametrs::parametrs(float temp, float hum, float co2, int bright, int l, int speed)
 {
-	air_temp = temp;
-	air_hum = hum;
-	conc_co2 = co2;
-	brightness = bright;
-	light = l;
-	vent_speed = speed;
+	if (IsRightTemp(temp))
+		air_temp = temp;
+	if (IsRightHum(hum))
+		air_hum = hum;
+	if (IsRightCO2(co2))
+		conc_co2 = co2;
+	if (IsRightBright(bright))
+		brightness = bright;
+	if (IsRightLight(l))
+		light = l;
+	if (IsRightSpeed(speed))
+		vent_speed = speed;
 }
 
 //Функции получения данных из полей
@@ -98,32 +219,38 @@ void parametrs::Get_vent_speed_link(int& speed)
 //Функции инициализации полей
 void parametrs::Set_air_temp(float temp)
 {
-	this->air_temp = temp;
+	if (IsRightTemp(temp))
+		air_temp = temp;
 }
 
 void parametrs::Set_air_hum(float hum)
 {
-	this->air_hum = hum;
+	if (IsRightHum(hum))
+		air_hum = hum;
 }
 
 void parametrs::Set_conc_co2(float co2)
 {
-	this->conc_co2 = co2;
+	if (IsRightCO2(co2))
+		conc_co2 = co2;
 }
 
 void parametrs::Set_brightness(int bright)
 {
-	this->brightness = bright;
+	if (IsRightBright(bright))
+		brightness = bright;
 }
 
 void parametrs::Set_light(int l)
 {
-	this->light = l;
+	if (IsRightLight(l))
+		light = l;
 }
 
 void parametrs::Set_vent_speed(int speed)
 {
-	this->vent_speed = speed;
+	if (IsRightSpeed(speed))
+		vent_speed = speed;
 }
 
 //Деструктор
@@ -135,12 +262,18 @@ parametrs::~parametrs()
 //Инициализация класса параметры
 void parametrs::Set_parametrs(float temp, float hum, float co2, int bright, int l, int speed)
 {
-	this->air_temp = temp;
-	this->air_hum = hum;
-	this->conc_co2 = co2;
-	this->brightness = bright;
-	this->light = l;
-	this->vent_speed = speed;
+	if (IsRightTemp(temp))
+		air_temp = temp;
+	if (IsRightHum(hum))
+		air_hum = hum;
+	if (IsRightCO2(co2))
+		conc_co2 = co2;
+	if (IsRightBright(bright))
+		brightness = bright;
+	if (IsRightLight(l))
+		light = l;
+	if (IsRightSpeed(speed))
+		vent_speed = speed;
 }
 
 // Создание нового списка

@@ -29,6 +29,24 @@ public:
 	//Конструктор с параметрами
 	parametrs(float temp, float hum, float co2, int bright, int l, int speed);
 
+	// Проверка числа на подходящее для температуры
+	bool IsRightTemp(float temp);
+
+	// Проверка числа на подходящее для влажности
+	bool IsRightHum(float hum);
+
+	// Проверка числа на подходящее для концентрации CO2
+	bool IsRightCO2(float co2);
+
+	// Проверка числа на подходящее для яркости света
+	bool IsRightBright(int bright);
+
+	// Проверка числа на подходящее для флажка света
+	bool IsRightLight(int l);
+
+	// Проверка числа на подходящее для скорости вентиляции
+	bool IsRightSpeed(int speed);
+
 	//Функции получения данных из полей
 	float Get_air_temp();
 	float Get_air_hum();

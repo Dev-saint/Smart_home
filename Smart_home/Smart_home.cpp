@@ -857,5 +857,74 @@ int main()
     kitch_testCopy2.DisplayKitch();
     cout << ("\n\n") << endl;
 
+    parametrs param_try;
+
+    cout << "Лабораторная работа 10\n" << endl;
+    float temp;
+
+    while (param_try.Get_air_temp() == 0)
+    {
+        cout << "Введите температуру: " << endl;
+        cin >> temp;
+        param_try.Set_air_temp(temp);
+    }
+
+    cout << "Введенная температура: " << param_try.Get_air_temp() << endl;
+
+    float humid;
+
+    while (param_try.Get_air_hum() == 0)
+    {
+        cout << "\nВведите влажность: " << endl;
+        cin >> humid;
+        param_try.Set_air_hum(humid);
+    }
+
+    cout << "Введенная влажность: " << param_try.Get_air_hum() << endl;
+
+    float co2_test;
+
+    while (param_try.Get_conc_co2() == 0)
+    {
+        cout << "\nВведите концентрацию CO2: " << endl;
+        cin >> co2_test;
+        param_try.Set_conc_co2(co2_test);
+    }
+
+    cout << "Введенная концентрация CO2: " << param_try.Get_conc_co2() << endl;
+
+    int brig;
+
+    while (param_try.Get_brightness() == 0)
+    {
+        cout << "\nВведите яркость света: " << endl;
+        cin >> brig;
+        param_try.Set_brightness(brig);
+    }
+
+    cout << "Введенная яркость света: " << param_try.Get_brightness() << endl;
+
+    int l;
+
+    while (param_try.Get_light() == 2)
+    {
+        cout << "\nВведите флаг света: " << endl;
+        cin >> l;
+        param_try.Set_light(l);
+    }
+
+    cout << "Введенный флаг света: " << param_try.Get_light() << endl;
+
+    int spd;
+
+    while (param_try.Get_vent_speed() == 0)
+    {
+        cout << "\nВведите скорость вентиляции: " << endl;
+        cin >> spd;
+        param_try.Set_vent_speed(spd);
+    }
+
+    cout << "Введенная скорость вентиляции: " << param_try.Get_vent_speed() << endl;
+
     system("pause");
 }
