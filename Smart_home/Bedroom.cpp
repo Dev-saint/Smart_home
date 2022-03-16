@@ -17,6 +17,18 @@ bedroom::bedroom()
     param_bed.Set_parametrs(0, 0, 0, 0, 0, 0);
 }
 
+// Конструктор с одним параметром
+bedroom::bedroom(float temp)
+{
+    param_bed.Set_parametrs(temp, 0, 0, 0, 0, 0);
+}
+
+//Конструктор с параметрами
+bedroom::bedroom(float temp, float hum, float co2, int bright, int l, int speed)
+{
+    param_bed.Set_parametrs(temp, hum, co2, bright, l, speed);
+}
+
 //Функции получения данных из полей
 float bedroom::Get_air_temp_bed()
 {
@@ -96,7 +108,7 @@ void bedroom::Set_parametrs_bed(float temp, float hum, float co2, int bright, in
 }
 
 //Вывод параметров спальни на экран
-void bedroom::OutBed()
+void bedroom::DisplayBed()
 {
     cout << endl << "Темература воздуха в спальне: " << Get_air_temp_bed() << " °С" << endl;
     cout << "Влажность воздуха в спальне: " << Get_air_hum_bed() << " %" << endl;

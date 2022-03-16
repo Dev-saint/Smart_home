@@ -15,39 +15,53 @@ void menu_kitch() // Функция вызова меню параметров для туалета
 //Конструктор
 kitchen::kitchen()
 {
-    param_kitch.Set_parametrs(0, 0, 0, 0, 0, 0);
+    param_kitch->Set_parametrs(0, 0, 0, 0, 0, 0);
     coffee = 0;
+}
+
+// Конструктор с одним параметром
+kitchen::kitchen(float temp)
+{
+    param_kitch->Set_parametrs(temp, 0, 0, 0, 0, 0);
+    coffee = 0;
+}
+
+//Конструктор с параметрами
+kitchen::kitchen(float temp, float hum, float co2, int bright, int l, int speed, int cof)
+{
+    param_kitch->Set_parametrs(temp, hum, co2, bright, l, speed);
+    coffee = cof;
 }
 
 //Функции получения данных из полей
 float kitchen::Get_air_temp_kitch()
 {
-    return param_kitch.Get_air_temp();
+    return param_kitch->Get_air_temp();
 }
 
 float kitchen::Get_air_hum_kitch()
 {
-    return param_kitch.Get_air_hum();
+    return param_kitch->Get_air_hum();
 }
 
 float kitchen::Get_conc_co2_kitch()
 {
-    return param_kitch.Get_conc_co2();
+    return param_kitch->Get_conc_co2();
 }
 
 int kitchen::Get_brightness_kitch()
 {
-    return param_kitch.Get_brightness();
+    return param_kitch->Get_brightness();
 }
 
 int kitchen::Get_light_kitch()
 {
-    return param_kitch.Get_light();
+    return param_kitch->Get_light();
 }
 
 int kitchen::Get_vent_speed_kitch()
 {
-    return param_kitch.Get_vent_speed();
+    return param_kitch->Get_vent_speed();
 }
 
 int kitchen::Get_coffee()
@@ -58,32 +72,32 @@ int kitchen::Get_coffee()
 //Функции инициализации полей
 void kitchen::Set_air_temp_kitch(float temp)
 {
-    param_kitch.Set_air_temp(temp);
+    param_kitch->Set_air_temp(temp);
 }
 
 void kitchen::Set_air_hum_kitch(float hum)
 {
-    param_kitch.Set_air_hum(hum);
+    param_kitch->Set_air_hum(hum);
 }
 
 void kitchen::Set_conc_co2_kitch(float co2)
 {
-    param_kitch.Set_conc_co2(co2);
+    param_kitch->Set_conc_co2(co2);
 }
 
 void kitchen::Set_brightness_kitch(int bright)
 {
-    param_kitch.Set_brightness(bright);
+    param_kitch->Set_brightness(bright);
 }
 
 void kitchen::Set_light_kitch(int l)
 {
-    param_kitch.Set_light(l);
+    param_kitch->Set_light(l);
 }
 
 void kitchen::Set_vent_speed_kitch(int speed)
 {
-    param_kitch.Set_vent_speed(speed);
+    param_kitch->Set_vent_speed(speed);
 }
 
 void kitchen::Set_coffee(int cof)
@@ -99,17 +113,17 @@ kitchen::~kitchen()
 //Инициализация класса кухня
 void kitchen::Set_parametrs_kitch(float temp, float hum, float co2, int bright, int l, int speed, int cof)
 {
-    param_kitch.Set_air_temp(temp);
-    param_kitch.Set_air_hum(hum);
-    param_kitch.Set_conc_co2(co2);
-    param_kitch.Set_brightness(bright);
-    param_kitch.Set_light(l);
-    param_kitch.Set_vent_speed(speed);
+    param_kitch->Set_air_temp(temp);
+    param_kitch->Set_air_hum(hum);
+    param_kitch->Set_conc_co2(co2);
+    param_kitch->Set_brightness(bright);
+    param_kitch->Set_light(l);
+    param_kitch->Set_vent_speed(speed);
     coffee = cof;
 }
 
 //Вывод параметров кухни на экран
-void kitchen::OutKitch()
+void kitchen::DisplayKitch()
 {
     cout << endl << "Темература воздуха на кухне: " << Get_air_temp_kitch() << " °С" << endl;
     cout << "Влажность воздуха на кухне: " << Get_air_hum_kitch() << " %" << endl;
@@ -128,4 +142,53 @@ void kitchen::coffee_machine() //Функция приготовления кофе
         Sleep(5000);
         cout << "Кофе готов!" << endl;
     }
+}
+
+// Конструктор копии
+kitchen::kitchen(kitchen& Class)
+{
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_air_temp(Class.Get_air_temp_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_air_hum(Class.Get_air_hum_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_conc_co2(Class.Get_conc_co2_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_brightness(Class.Get_brightness_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_light(Class.Get_light_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    param_kitch->Set_vent_speed(Class.Get_vent_speed_kitch());
+
+    // Поверхностное копирование, т.к. это не указатель
+    coffee = Class.coffee;
+}
+
+// Перегрузка функции присваивания
+kitchen& kitchen::operator=(kitchen& Class)
+{
+    // Проверка на самоприсваивание
+    if (this == &Class)
+        return *this;
+
+    param_kitch->Set_air_temp(Class.Get_air_temp_kitch());
+
+    param_kitch->Set_air_hum(Class.Get_air_hum_kitch());
+
+    param_kitch->Set_conc_co2(Class.Get_conc_co2_kitch());
+
+    param_kitch->Set_brightness(Class.Get_brightness_kitch());
+
+    param_kitch->Set_light(Class.Get_light_kitch());
+
+    param_kitch->Set_vent_speed(Class.Get_vent_speed_kitch());
+
+    coffee = Class.coffee;
+
+    return *this;
 }

@@ -8,10 +8,16 @@ class bathroom;
 class toilet
 {
 private:
-	parametrs param_toil; //Параметры туалета
+	parametrs* param_toil = new parametrs(); //Параметры туалета
 public:
 	//Конструктор
 	toilet();
+
+	// Конструктор с одним параметром
+	toilet(float temp);
+
+	//Конструктор с параметрами
+	toilet(float temp, float hum, float co2, int bright, int l, int speed);
 
 	//Функции получения данных из полей
 	float Get_air_temp_toil();
@@ -44,7 +50,7 @@ public:
 	void Set_parametrs_toil(float temp, float hum, float co2, int bright, int l, int speed);
 	
 	//Вывод параметров туалета на экран
-	void OutToil();
+	void DisplayToil();
 
 	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
 	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);

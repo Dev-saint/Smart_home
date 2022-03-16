@@ -9,6 +9,12 @@ public:
 	//Конструктор
 	wine_vault();
 
+	// Конструктор с одним параметром
+	wine_vault(float temp);
+
+	//Конструктор с параметрами
+	wine_vault(float temp, float hum, float co2, int bright, int l, int speed);
+
 	//Функции получения данных из полей
 	float Get_air_temp_wine();
 	float Get_air_hum_wine();
@@ -32,7 +38,7 @@ public:
 	void Set_parametrs_wine(float temp, float hum, float co2, int bright, int l, int speed);
 
 	//Вывод параметров винного погреба на экран
-	void OutWine();
+	void DisplayWine();
 };
 
 void menu_wine(); // Функция вызова меню параметров для винного погреба

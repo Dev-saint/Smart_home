@@ -531,7 +531,7 @@ int main()
                                 mas_toil[i] = new toilet;
                                 cout << endl << "Туалет №" << i + 1 << endl;
                                 mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 / (i + 1), 1, 80 / (i + 3));
-                                mas_toil[i]->OutToil();
+                                mas_toil[i]->DisplayToil();
                             }
 
                             cout << "1)" << endl;
@@ -663,6 +663,7 @@ int main()
                             cout << "==============================" << endl;
 
                             cout << endl;
+
                         }
     } while (f_menu_rooms);
     delete pkitch;
@@ -671,5 +672,190 @@ int main()
     delete pbed;
     delete pwine;
     delete[] ktoil;
+
+    parametrs param1;
+    parametrs param2(20);
+    parametrs param3(15, 60, 10, 30, 1, 40);
+
+    parametrs* param4 = new parametrs();
+    parametrs* param5 = new parametrs(20);
+    parametrs* param6 = new parametrs(15, 60, 10, 30, 1, 40);
+
+    cout << "Лабораторная 9" << endl;
+    cout << "" << endl;
+    cout << "Конструкторы класса Параметры для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    param1.Display();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    param2.Display();
+    cout << "3) Конструктор с параметрами:" << endl;
+    param3.Display();
+    cout << "" << endl;
+    cout << "Конструкторы класса Параметры для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    param4->Display();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    param5->Display();
+    cout << "3) Конструктор с параметрами:" << endl;
+    param6->Display();
+    cout << "\n\n" << endl;
+
+    toilet toil1;
+    toilet toil2(20);
+    toilet toil3(15, 60, 10, 30, 1, 40);
+
+    toilet* toil4 = new toilet();
+    toilet* toil5 = new toilet(20);
+    toilet* toil6 = new toilet(15, 60, 10, 30, 1, 40);
+
+    cout << "Конструкторы класса Туалет для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    toil1.DisplayToil();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    toil2.DisplayToil();
+    cout << "3) Конструктор с параметрами:" << endl;
+    toil3.DisplayToil();
+    cout << "" << endl;
+    cout << "Конструкторы класса Туалет для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    toil4->DisplayToil();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    toil5->DisplayToil();
+    cout << "3) Конструктор с параметрами:" << endl;
+    toil6->DisplayToil();
+    cout << "\n\n" << endl;
+
+    kitchen kitch1;
+    kitchen kitch2(20);
+    kitchen kitch3(15, 60, 10, 30, 1, 40, 1);
+
+    kitchen* kitch4 = new kitchen();
+    kitchen* kitch5 = new kitchen(20);
+    kitchen* kitch6 = new kitchen(15, 60, 10, 30, 1, 40, 1);
+
+    cout << "Конструкторы класса Кухня для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    kitch1.DisplayKitch();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    kitch2.DisplayKitch();
+    cout << "3) Конструктор с параметрами:" << endl;
+    kitch3.DisplayKitch();
+    cout << "" << endl;
+    cout << "Конструкторы класса Кухня для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    kitch4->DisplayKitch();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    kitch5->DisplayKitch();
+    cout << "3) Конструктор с параметрами:" << endl;
+    kitch6->DisplayKitch();
+    cout << "\n\n" << endl;
+
+    bedroom bed1;
+    bedroom bed2(20);
+    bedroom bed3(15, 60, 10, 30, 1, 40);
+
+    bedroom* bed4 = new bedroom();
+    bedroom* bed5 = new bedroom(20);
+    bedroom* bed6 = new bedroom(15, 60, 10, 30, 1, 40);
+
+    cout << "Конструкторы класса Спальня для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    bed1.DisplayBed();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    bed2.DisplayBed();
+    cout << "3) Конструктор с параметрами:" << endl;
+    bed3.DisplayBed();
+    cout << "" << endl;
+    cout << "Конструкторы класса Спальня для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    bed4->DisplayBed();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    bed5->DisplayBed();
+    cout << "3) Конструктор с параметрами:" << endl;
+    bed6->DisplayBed();
+    cout << "\n\n" << endl;
+
+    bathroom bath1;
+    bathroom bath2(20);
+    bathroom bath3(15, 60, 10, 30, 1, 40, 1);
+
+    bathroom* bath4 = new bathroom();
+    bathroom* bath5 = new bathroom(20);
+    bathroom* bath6 = new bathroom(15, 60, 10, 30, 1, 40, 1);
+
+    cout << "Конструкторы класса Ванная для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    bath1.DisplayBath();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    bath2.DisplayBath();
+    cout << "3) Конструктор с параметрами:" << endl;
+    bath3.DisplayBath();
+    cout << "" << endl;
+    cout << "Конструкторы класса Ванная для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    bath4->DisplayBath();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    bath5->DisplayBath();
+    cout << "3) Конструктор с параметрами:" << endl;
+    bath6->DisplayBath();
+    cout << "\n\n" << endl;
+
+    wine_vault wine1;
+    wine_vault wine2(20);
+    wine_vault wine3(15, 60, 10, 30, 1, 40);
+
+    wine_vault* wine4 = new wine_vault();
+    wine_vault* wine5 = new wine_vault(20);
+    wine_vault* wine6 = new wine_vault(15, 60, 10, 30, 1, 40);
+
+    cout << "Конструкторы класса Винный погреб для статических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    wine1.DisplayWine();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    wine2.DisplayWine();
+    cout << "3) Конструктор с параметрами:" << endl;
+    wine3.DisplayWine();
+    cout << "" << endl;
+    cout << "Конструкторы класса Винный погреб для динамических объектов:" << endl;
+    cout << "1) Конструктор без параметров:" << endl;
+    wine4->DisplayWine();
+    cout << "2) Конструктор с 1-им параметром:" << endl;
+    wine5->DisplayWine();
+    cout << "3) Конструктор с параметрами:" << endl;
+    wine6->DisplayWine();
+    cout << "\n\n" << endl;
+
+    int j;
+    toilet toilArr[3];
+    for (j = 0; j < 3; j++)
+        toilArr[j] = toilet(20 + j);
+    cout << ("Инициализировать небольшой массив конструктором с одним параметром:") << endl;
+    for (j = 0; j < 3; j++)
+        toilArr[j].DisplayToil();
+    cout << ("\n\n") << endl;
+
+    cout << ("Продемонстрировать различие между мелким и глубоким копированием:\n") << endl;
+
+    toilet toil_testCopy1(1, 1, 1, 1, 1, 1);
+    toilet toil_testCopy2 = toil_testCopy1;
+    cout << ("\nПоверхностная копия 1-го объекта во 2-ой для класса \'Туалет\':") << endl;
+    toil_testCopy1.DisplayToil();
+    toil_testCopy2.DisplayToil();
+    cout << ("\nИзменение 1-го объекта, а 2-ой не трогается:") << endl;
+    toil_testCopy2.Set_parametrs_toil(3, 3, 3, 3, 3, 3);
+    toil_testCopy1.DisplayToil();
+    toil_testCopy2.DisplayToil();
+
+    kitchen kitch_testCopy1(1, 1, 1, 1, 1, 1, 1);
+    kitchen kitch_testCopy2 = kitch_testCopy1;
+    cout << ("\nГлубокая копия 1-го объекта во 2-ой для класса \'Кухня\' с помощью перегрузки оператора \'=\':") << endl;
+    kitch_testCopy1.DisplayKitch();
+    kitch_testCopy2.DisplayKitch();
+    cout << ("\nИзменение 1-го объекта, а 2-ой не трогается:") << endl;
+    kitch_testCopy1.Set_parametrs_kitch(3, 3, 3, 3, 3, 3, 3);
+    kitch_testCopy1.DisplayKitch();
+    kitch_testCopy2.DisplayKitch();
+    cout << ("\n\n") << endl;
+
     system("pause");
 }

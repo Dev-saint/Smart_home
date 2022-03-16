@@ -10,6 +10,12 @@ public:
 	//Конструктор
 	bathroom();
 
+	// Конструктор с одним параметром
+	bathroom(float temp);
+
+	//Конструктор с параметрами
+	bathroom(float temp, float hum, float co2, int bright, int l, int speed, int water);
+
 	//Функции получения данных из полей
 	float Get_air_temp_bath();
 	float Get_air_hum_bath();
@@ -35,7 +41,7 @@ public:
 	void Set_parametrs_bath(float temp, float hum, float co2, int bright, int l, int speed, int water);
 
 	//Вывод параметров ванной на экран
-	void OutBath();
+	void DisplayBath();
 
 	void water_bath(); //Функция набора воды в ванную
 

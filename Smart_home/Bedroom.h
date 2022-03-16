@@ -9,6 +9,12 @@ public:
 	//Конструктор
 	bedroom();
 
+	// Конструктор с одним параметром
+	bedroom(float temp);
+
+	//Конструктор с параметрами
+	bedroom(float temp, float hum, float co2, int bright, int l, int speed);
+
 	//Функции получения данных из полей
 	float Get_air_temp_bed();
 	float Get_air_hum_bed();
@@ -32,7 +38,7 @@ public:
 	void Set_parametrs_bed(float temp, float hum, float co2, int bright, int l, int speed, int cof);
 
 	//Вывод параметров спальни на экран
-	void OutBed();
+	void DisplayBed();
 
 	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
 	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);

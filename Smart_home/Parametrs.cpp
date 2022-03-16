@@ -11,6 +11,28 @@ parametrs::parametrs()
 	vent_speed = 0;
 }
 
+//Конструктор с одним параметром
+parametrs::parametrs(float temp)
+{
+	air_temp = temp;
+	air_hum = 0;
+	conc_co2 = 0;
+	brightness = 0;
+	light = 0;
+	vent_speed = 0;
+}
+
+//Конструктор с параметрами
+parametrs::parametrs(float temp, float hum, float co2, int bright, int l, int speed)
+{
+	air_temp = temp;
+	air_hum = hum;
+	conc_co2 = co2;
+	brightness = bright;
+	light = l;
+	vent_speed = speed;
+}
+
 //Функции получения данных из полей
 float parametrs::Get_air_temp()
 {
@@ -192,4 +214,15 @@ parametrs parametrs::operator++ (int)
 	parametrs p1 = *this;
 	++* this;
 	return p1;
+}
+
+//Вывод параметров на экран
+void parametrs::Display()
+{
+	cout << endl << "Темература воздуха: " << air_temp << " °С" << endl;
+	cout << "Влажность воздуха: " << air_hum << " %" << endl;
+	cout << "Концентрация CO2: " << conc_co2 << " %" << endl;
+	cout << "Яркость света: " << brightness << " %" << endl;
+	cout << "Флажок света: " << light << endl;
+	cout << "Скорость вентиляции: " << vent_speed << " %" << endl;
 }

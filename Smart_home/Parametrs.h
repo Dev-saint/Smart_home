@@ -23,6 +23,12 @@ public:
 	//Конструктор
 	parametrs();
 
+	//Конструктор с одним параметром
+	parametrs(float temp);
+
+	//Конструктор с параметрами
+	parametrs(float temp, float hum, float co2, int bright, int l, int speed);
+
 	//Функции получения данных из полей
 	float Get_air_temp();
 	float Get_air_hum();
@@ -70,4 +76,7 @@ public:
 	
 	// Создание нового списка
 	void NewList();
+
+	//Вывод параметров на экран
+	void Display();
 };

@@ -17,6 +17,18 @@ wine_vault::wine_vault()
     param_wine.Set_parametrs(0, 0, 0, 0, 0, 0);
 }
 
+// Конструктор с одним параметром
+wine_vault::wine_vault(float temp)
+{
+    param_wine.Set_parametrs(temp, 0, 0, 0, 0, 0);
+}
+
+//Конструктор с параметрами
+wine_vault::wine_vault(float temp, float hum, float co2, int bright, int l, int speed)
+{
+    param_wine.Set_parametrs(temp, hum, co2, bright, l, speed);
+}
+
 //Функции получения данных из полей
 float wine_vault::Get_air_temp_wine()
 {
@@ -96,7 +108,7 @@ void wine_vault::Set_parametrs_wine(float temp, float hum, float co2, int bright
 }
 
 //Вывод параметров винного погреба на экран
-void wine_vault::OutWine()
+void wine_vault::DisplayWine()
 {
     cout << endl << "Темература воздуха в винном погребе: " << Get_air_temp_wine() << " °С" << endl;
     cout << "Влажность воздуха в винном погребе: " << Get_air_hum_wine() << " %" << endl;

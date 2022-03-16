@@ -19,6 +19,20 @@ bathroom::bathroom()
     flag_water = 0;
 }
 
+// Конструктор с одним параметром
+bathroom::bathroom(float temp)
+{
+    param_bath.Set_parametrs(temp, 0, 0, 0, 0, 0);
+    flag_water = 0;
+}
+
+//Конструктор с параметрами
+bathroom::bathroom(float temp, float hum, float co2, int bright, int l, int speed, int water)
+{
+    param_bath.Set_parametrs(temp, hum, co2, bright, l, speed);
+    flag_water = water;
+}
+
 //Функции получения данных из полей
 float bathroom::Get_air_temp_bath()
 {
@@ -109,7 +123,7 @@ void bathroom::Set_parametrs_bath(float temp, float hum, float co2, int bright, 
 }
 
 //Вывод параметров ванной на экран
-void bathroom::OutBath()
+void bathroom::DisplayBath()
 {
     cout << endl << "Темература воздуха в ванной: " << Get_air_temp_bath() << " °С" << endl;
     cout << "Влажность воздуха в ванной: " << Get_air_hum_bath() << " %" << endl;
@@ -133,8 +147,8 @@ void bathroom::water_bath()   //Функция набора воды в ванную
 //Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
 void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp)
 {
-    toil.param_toil.Set_air_temp(temp);
-    kitch.param_kitch.Set_air_temp(temp);
+    toil.param_toil->Set_air_temp(temp);
+    kitch.param_kitch->Set_air_temp(temp);
     bed.param_bed.Set_air_temp(temp);
     bath.param_bath.Set_air_temp(temp);
 }
