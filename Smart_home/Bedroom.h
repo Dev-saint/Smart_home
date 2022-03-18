@@ -1,21 +1,21 @@
 #pragma once
 #include "Kitchen.h"
 
-class bedroom
+class Bedroom : public Parametrs
 {
 private:
-	parametrs param_bed;
+	//Parametrs param_bed;
 public:
 	//Конструктор
-	bedroom();
+	Bedroom();
 
 	// Конструктор с одним параметром
-	bedroom(float temp);
+	Bedroom(float temp);
 
 	//Конструктор с параметрами
-	bedroom(float temp, float hum, float co2, int bright, int l, int speed);
+	Bedroom(float temp, float hum, float co2, int bright, int l, int speed);
 
-	//Функции получения данных из полей
+	/*//Функции получения данных из полей
 	float Get_air_temp_bed();
 	float Get_air_hum_bed();
 	float Get_conc_co2_bed();
@@ -29,19 +29,19 @@ public:
 	void Set_conc_co2_bed(float co2);
 	void Set_brightness_bed(int bright);
 	void Set_light_bed(int l);
-	void Set_vent_speed_bed(int speed);
+	void Set_vent_speed_bed(int speed);*/
 
 	//Деструктор
-	~bedroom();
+	~Bedroom();
 
-	//Инициализация класса спальня
-	void Set_parametrs_bed(float temp, float hum, float co2, int bright, int l, int speed, int cof);
+	/*//Инициализация класса спальня
+	void Set_parametrs_bed(float temp, float hum, float co2, int bright, int l, int speed, int cof);*/
 
 	//Вывод параметров спальни на экран
 	void DisplayBed();
 
-	//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
-	friend void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp);
+	/*//Дружественная функция задания температур классов Toilet, Kitchen, Bedroom, Bathroom
+	friend void temp_set_all(Toilet& toil, Kitchen& kitch, Bedroom& bed, Bathroom& bath, float temp);*/
 };
 
 void menu_bed(); // Функция вызова меню параметров для спальни

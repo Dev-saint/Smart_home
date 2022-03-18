@@ -1,8 +1,8 @@
 ﻿#include "Wine_vault.h"
 #include "Smart_home.h"
 
-// Инициализация статическоко компанента (указателя):
-parametrs* parametrs::lastPar = NULL;
+/*// Инициализация статическоко компанента (указателя):
+Parametrs* Parametrs::lastPar = NULL;*/
 
 int main()
 {
@@ -10,20 +10,20 @@ int main()
     system("cls");
     float t, co2, hum;
     int f_menu_rooms = 0, room, par, f_menu_par = 0, bright, speed, light, coffee, water, i;
-    toilet toil;
-    kitchen kitch;
-    bedroom bed;
-    bathroom bath;
-    wine_vault wine;
-    toilet* ptoil = new toilet;
-    kitchen* pkitch = new kitchen;
-    bedroom* pbed = new bedroom;
-    bathroom* pbath = new bathroom;
-    wine_vault* pwine = new wine_vault;
-    toilet* ktoil = new toilet[3];
-    toilet* mas_toil[5];
+    Toilet toil;
+    //Kitchen kitch;
+    //Bedroom bed;
+    //Bathroom bath;
+    //Wine_vault wine;
+    Toilet* ptoil = new Toilet;
+    //Kitchen* pkitch = new Kitchen;
+    //Bedroom* pbed = new Bedroom;
+    //Bathroom* pbath = new Bathroom;
+    //Wine_vault* pwine = new Wine_vault;
+    Toilet* ktoil = new Toilet[3];
+    //Toilet* mas_toil[5];
     cout << "Система умного дома" << endl;
-    do
+    /*do
     {
         cout << "Выберите комнату:" << endl
             << "1. Туалет" << endl
@@ -507,7 +507,7 @@ int main()
                         cin >> f_menu_rooms;
                         if (!f_menu_rooms)
                         {
-                            cout << endl << "Работа с динамическими объектами:" << endl;
+                            /*cout << endl << "Работа с динамическими объектами:" << endl;
                             (*pkitch).Set_air_temp_kitch(20);
                             cout << "Температура воздуха на кухне будет изменена до " << (*pkitch).Get_air_temp_kitch() << " °С" << endl;
                             (*pbath).Set_air_hum_bath(55);
@@ -529,7 +529,7 @@ int main()
 
                             for (int i = 0; i < 5; i++)
                             {
-                                mas_toil[i] = new toilet;
+                                mas_toil[i] = new Toilet;
                                 cout << endl << "Туалет №" << i + 1 << endl;
                                 mas_toil[i]->Set_parametrs_toil(20 * i, 60 + i, 10 - i, 75 / (i + 1), 1, 80 / (i + 3));
                                 mas_toil[i]->DisplayToil();
@@ -538,7 +538,7 @@ int main()
                             cout << "1)" << endl;
                             cout << "=================================================================" << endl;
                             cout << "Тест возврата значений из метода класса Parametrs через ссылку (&)" << endl;
-                            parametrs param[4];
+                            Parametrs param[4];
                             param[0].Set_parametrs(20, 50, 10, 50, 1, 30);
 
                             float temperature; float& t = temperature; param[0].Get_air_temp_link(t);
@@ -558,7 +558,7 @@ int main()
                             cout << "\n" << endl;
 
                             cout << "Тест возврата значений из метода класса Toilet через указатель (*)" << endl;
-                            toilet toil_p;
+                            Toilet toil_p;
                             toil_p.Set_parametrs_toil(20, 50, 10, 50, 1, 30);
 
                             float* temp_p = new float; toil_p.Get_air_temp_toil_point(temp_p);
@@ -581,27 +581,27 @@ int main()
                             cout << "=================================================================" << endl;
                             cout << "Тест списка температур с использованием указателя \'this\'" << endl;
 
-                            // Задание полей температуры объектов класса parametrs:
+                            // Задание полей температуры объектов класса Parametrs:
                             param[0].Set_air_temp(1);
                             param[1].Set_air_temp(2);
                             param[2].Set_air_temp(3);
                             param[3].Set_air_temp(4);
 
                             // Вызов статической компанентной функции:
-                            parametrs::reprint();
+                            Parametrs::reprint();
 
                             // Включение созданных компанентов в двусвязанный список:
                             param[0].Add(); param[1].Add(); param[2].Add(); param[3].Add();
 
                             // Печать в обратном порядке значений элементов списка:
-                            parametrs::reprint();
+                            Parametrs::reprint();
 
                             cout << endl;
 
                             cout << "3)" << endl;
                             cout << "=================================================================" << endl;
-                            cout << "Дружественная функция задания температур классов \n \'туалет\' toilet, \'кухня\' kitchen, "
-                                << "\'спальня\' bedroom и \'ванная\' bathroom:" << endl;
+                            cout << "Дружественная функция задания температур классов \n \'туалет\' Toilet, \'кухня\' Kitchen, "
+                                << "\'спальня\' Bedroom и \'ванная\' Bathroom:" << endl;
 
                             temp_set_all(toil, kitch, bed, bath, 20);
                             cout << "\nТемпература в туалете: " << toil.Get_air_temp_toil() << endl;
@@ -613,15 +613,15 @@ int main()
 
                             cout << "4)" << endl;
                             cout << "=================================================================" << endl;
-                            cout << "Перегрузка оператора \'+\' для класса \'параметры\' parametrs" << endl;
+                            cout << "Перегрузка оператора \'+\' для класса \'параметры\' Parametrs" << endl;
 
-                            parametrs parNorm;
+                            Parametrs parNorm;
                             parNorm.Set_parametrs(20, 50, 10, 60, 0, 0);
                             cout << "Прибавим к температуре объекта выше 5 градусов:" << endl;
                             parNorm = parNorm + 5;
                             cout << "Температура: " << parNorm.Get_air_temp() << endl;
                             cout << "\n" << endl;
-                            cout << "Перегрузка оператора \'++\' (два варианта, префиксный и постфиксный) \n для класса \'параметры\' parametrs" << endl;
+                            cout << "Перегрузка оператора \'++\' (два варианта, префиксный и постфиксный) \n для класса \'параметры\' Parametrs" << endl;
                             parNorm.Set_air_temp(20);
                             cout << "Температура: " << parNorm.Get_air_temp() << endl;
                             cout << "\nИспользование оператора \'++\' (префиксный):" << endl;
@@ -637,10 +637,10 @@ int main()
                             cout << "Модифицировать ваши проекты на С++, C# и Java путем добавления в один из классов\n"
                                 << "как минимум одного статического поля и одного статического метода." << endl;
                             cout << "==============================" << endl;
-                            cout << "(Использовались статистический член класса \'parametrs\' \'lastPar\' и\n"
+                            cout << "(Использовались статистический член класса \'Parametrs\' \'lastPar\' и\n"
                                 << "статистические методы класса \'NewList\' и \'reprint\')" << endl;
 
-                            // Задание полей температуры объектов класса parametrs:
+                            // Задание полей температуры объектов класса Parametrs:
                             param[0].Set_air_temp(1);
                             param[1].Set_air_temp(2);
                             param[2].Set_air_temp(3);
@@ -666,21 +666,21 @@ int main()
                             cout << endl;
 
                         }
-    } while (f_menu_rooms);
-    delete pkitch;
+    } while (f_menu_rooms);*/
+    /*delete pkitch;
     delete pbath;
     delete ptoil;
     delete pbed;
     delete pwine;
-    delete[] ktoil;
+    delete[] ktoil;*/
 
-    parametrs param1;
-    parametrs param2(20);
-    parametrs param3(15, 60, 10, 30, 1, 40);
+    /*Parametrs param1;
+    Parametrs param2(20);
+    Parametrs param3(15, 60, 10, 30, 1, 40);
 
-    parametrs* param4 = new parametrs();
-    parametrs* param5 = new parametrs(20);
-    parametrs* param6 = new parametrs(15, 60, 10, 30, 1, 40);
+    Parametrs* param4 = new Parametrs();
+    Parametrs* param5 = new Parametrs(20);
+    Parametrs* param6 = new Parametrs(15, 60, 10, 30, 1, 40);
 
     cout << "Лабораторная 9" << endl;
     cout << "" << endl;
@@ -701,13 +701,13 @@ int main()
     param6->Display();
     cout << "\n\n" << endl;
 
-    toilet toil1;
-    toilet toil2(20);
-    toilet toil3(15, 60, 10, 30, 1, 40);
+    Toilet toil1;
+    Toilet toil2(20);
+    Toilet toil3(15, 60, 10, 30, 1, 40);
 
-    toilet* toil4 = new toilet();
-    toilet* toil5 = new toilet(20);
-    toilet* toil6 = new toilet(15, 60, 10, 30, 1, 40);
+    Toilet* toil4 = new Toilet();
+    Toilet* toil5 = new Toilet(20);
+    Toilet* toil6 = new Toilet(15, 60, 10, 30, 1, 40);
 
     cout << "Конструкторы класса Туалет для статических объектов:" << endl;
     cout << "1) Конструктор без параметров:" << endl;
@@ -726,13 +726,13 @@ int main()
     toil6->DisplayToil();
     cout << "\n\n" << endl;
 
-    kitchen kitch1;
-    kitchen kitch2(20);
-    kitchen kitch3(15, 60, 10, 30, 1, 40, 1);
+    Kitchen kitch1;
+    Kitchen kitch2(20);
+    Kitchen kitch3(15, 60, 10, 30, 1, 40, 1);
 
-    kitchen* kitch4 = new kitchen();
-    kitchen* kitch5 = new kitchen(20);
-    kitchen* kitch6 = new kitchen(15, 60, 10, 30, 1, 40, 1);
+    Kitchen* kitch4 = new Kitchen();
+    Kitchen* kitch5 = new Kitchen(20);
+    Kitchen* kitch6 = new Kitchen(15, 60, 10, 30, 1, 40, 1);
 
     cout << "Конструкторы класса Кухня для статических объектов:" << endl;
     cout << "1) Конструктор без параметров:" << endl;
@@ -751,13 +751,13 @@ int main()
     kitch6->DisplayKitch();
     cout << "\n\n" << endl;
 
-    bedroom bed1;
-    bedroom bed2(20);
-    bedroom bed3(15, 60, 10, 30, 1, 40);
+    Bedroom bed1;
+    Bedroom bed2(20);
+    Bedroom bed3(15, 60, 10, 30, 1, 40);
 
-    bedroom* bed4 = new bedroom();
-    bedroom* bed5 = new bedroom(20);
-    bedroom* bed6 = new bedroom(15, 60, 10, 30, 1, 40);
+    Bedroom* bed4 = new Bedroom();
+    Bedroom* bed5 = new Bedroom(20);
+    Bedroom* bed6 = new Bedroom(15, 60, 10, 30, 1, 40);
 
     cout << "Конструкторы класса Спальня для статических объектов:" << endl;
     cout << "1) Конструктор без параметров:" << endl;
@@ -776,13 +776,13 @@ int main()
     bed6->DisplayBed();
     cout << "\n\n" << endl;
 
-    bathroom bath1;
-    bathroom bath2(20);
-    bathroom bath3(15, 60, 10, 30, 1, 40, 1);
+    Bathroom bath1;
+    Bathroom bath2(20);
+    Bathroom bath3(15, 60, 10, 30, 1, 40, 1);
 
-    bathroom* bath4 = new bathroom();
-    bathroom* bath5 = new bathroom(20);
-    bathroom* bath6 = new bathroom(15, 60, 10, 30, 1, 40, 1);
+    Bathroom* bath4 = new Bathroom();
+    Bathroom* bath5 = new Bathroom(20);
+    Bathroom* bath6 = new Bathroom(15, 60, 10, 30, 1, 40, 1);
 
     cout << "Конструкторы класса Ванная для статических объектов:" << endl;
     cout << "1) Конструктор без параметров:" << endl;
@@ -801,13 +801,13 @@ int main()
     bath6->DisplayBath();
     cout << "\n\n" << endl;
 
-    wine_vault wine1;
-    wine_vault wine2(20);
-    wine_vault wine3(15, 60, 10, 30, 1, 40);
+    Wine_vault wine1;
+    Wine_vault wine2(20);
+    Wine_vault wine3(15, 60, 10, 30, 1, 40);
 
-    wine_vault* wine4 = new wine_vault();
-    wine_vault* wine5 = new wine_vault(20);
-    wine_vault* wine6 = new wine_vault(15, 60, 10, 30, 1, 40);
+    Wine_vault* wine4 = new Wine_vault();
+    Wine_vault* wine5 = new Wine_vault(20);
+    Wine_vault* wine6 = new Wine_vault(15, 60, 10, 30, 1, 40);
 
     cout << "Конструкторы класса Винный погреб для статических объектов:" << endl;
     cout << "1) Конструктор без параметров:" << endl;
@@ -827,9 +827,9 @@ int main()
     cout << "\n\n" << endl;
 
     int j;
-    toilet toilArr[3];
+    Toilet toilArr[3];
     for (j = 0; j < 3; j++)
-        toilArr[j] = toilet(20 + j);
+        toilArr[j] = Toilet(20 + j);
     cout << ("Инициализировать небольшой массив конструктором с одним параметром:") << endl;
     for (j = 0; j < 3; j++)
         toilArr[j].DisplayToil();
@@ -837,8 +837,8 @@ int main()
 
     cout << ("Продемонстрировать различие между мелким и глубоким копированием:\n") << endl;
 
-    toilet toil_testCopy1(1, 1, 1, 1, 1, 1);
-    toilet toil_testCopy2 = toil_testCopy1;
+    Toilet toil_testCopy1(1, 1, 1, 1, 1, 1);
+    Toilet toil_testCopy2 = toil_testCopy1;
     cout << ("\nПоверхностная копия 1-го объекта во 2-ой для класса \'Туалет\':") << endl;
     toil_testCopy1.DisplayToil();
     toil_testCopy2.DisplayToil();
@@ -847,8 +847,8 @@ int main()
     toil_testCopy1.DisplayToil();
     toil_testCopy2.DisplayToil();
 
-    kitchen kitch_testCopy1(1, 1, 1, 1, 1, 1, 1);
-    kitchen kitch_testCopy2 = kitch_testCopy1;
+    Kitchen kitch_testCopy1(1, 1, 1, 1, 1, 1, 1);
+    Kitchen kitch_testCopy2 = kitch_testCopy1;
     cout << ("\nГлубокая копия 1-го объекта во 2-ой для класса \'Кухня\' с помощью перегрузки оператора \'=\':") << endl;
     kitch_testCopy1.DisplayKitch();
     kitch_testCopy2.DisplayKitch();
@@ -858,9 +858,9 @@ int main()
     kitch_testCopy2.DisplayKitch();
     cout << ("\n\n") << endl;
 
-    parametrs param_try;
+    Parametrs param_try;
 
-    cout << "Лабораторная работа 10\n" << endl;
+    /*cout << "Лабораторная работа 10\n" << endl;
     float temp;
 
     while (param_try.Get_air_temp() == 0)
@@ -927,11 +927,12 @@ int main()
 
     cout << "Введенная скорость вентиляции: " << param_try.Get_vent_speed() << endl;
 
-    toilet toilArr1[3];
-    toilet toilArr2[2][2];
+
+    Toilet toilArr1[3];
+    Toilet toilArr2[2][2];
 
     for (j = 0; j < 3; j++)
-        toilArr1[j] = toilet(20 + j);
+        toilArr1[j] = Toilet(20 + j);
 
     for (i = 0; i < 2; i++)
         for (j = 0; j < 2; j++)
@@ -949,8 +950,88 @@ int main()
     for (i = 0; i < 2; i++)
         for (j = 0; j < 2; j++)
             toilArr2[i][j].DisplayToil();
-    //=================================
+    //=================================*/
 
+    /*Parametrs par1(20);
+    Toilet toil1(25);
+
+    cout << "3) Продемонстрировать перегрузку метода базового" << endl;
+    cout << "  класса в производном классе(с вызовом метода базового" << endl;
+    cout << "  класса и без такого вызова)" << endl << endl;
+
+    par1.Display();
+    toil1.DisplayToil();
+    cout << endl;
+    par1.Temp_check();
+    toil1.Temp_check();*/
+
+    /*Toilet toil1(25, 30, 10, 50, 0, 40);
+    /*Parametrs param1(1, 1, 1, 1, 1, 1);
+
+    cout << "5) Выполнить перегрузку оператора присваивания объекту" << endl;
+    cout << "производного класса объектов базового класса" << endl << endl;
+
+    param1.Display();
+    toil1.DisplayToil();
+
+    cout << endl;
+
+    toil1 = param1;
+
+    param1.Display();
+    toil1.DisplayToil();
+
+    cout << "6) Заменить методы Display используя операции << для C++" << endl << endl;
+    cout << toil1 << endl;*/
+
+    /*cout << "\n7) Придумать разумное использование виртуальных функций и создать их в вашем проекте." << endl << endl;
+
+    Toilet toil1(25, 30, 10, 50, 0, 40);
+    Parametrs param1(1, 1, 1, 1, 1, 1);
+
+    param1.Display();
+    toil1.DisplayToil();
+    cout << endl;
+    param1.Temp_check();
+    toil1.Temp_check();
+
+    Parametrs Param(3, 3, 3, 3, 1, 3);
+    Toilet Toil(2, 2, 2, 2, 0, 2);
+    Parametrs* pParam = &Toil;
+    Toilet* pToil = &Toil;
+    Parametrs* pParam2 = &Param;
+
+    cout << "=========================================" << endl << endl;
+    cout << "Объект класса Туалет" << endl;
+    Toil.DisplayToil();
+    cout << endl;
+    cout << "Указатель класса Параметры на класс Туалет" << endl;
+    pParam->Display();
+    cout << endl;
+    cout << "Указатель класса Параметры на класс Туалет" << endl;
+    pParam2->Display();
+    cout << endl;
+    cout << "Вызов виртуальной функции через не виртуальную базового класса" << endl;
+    cout << "от объекта класса Туалет" << endl;
+    Toil.Temp_check();
+    cout << endl;
+    cout << "Вызов виртуальной функции через не виртуальную базового класса" << endl;
+    cout << "от объекта класса Параметры" << endl;
+    Param.Temp_check();
+    cout << endl;
+    cout << "от указателя Параметры на объект класса Туалет" << endl;
+    cout << pParam->Temp_up() << endl;
+    cout << endl;
+    cout << "от указателя Параметры на объект класса Параметры" << endl;
+    cout << pParam2->Temp_up() << endl;
+    cout << endl;
+    cout << "от указателя Туалет на объект класса Туалет" << endl;
+    cout << pToil->Temp_up() << endl;*/
+
+    Toilet toil1;
+    toil1.Inp();
+    cout << endl;
+    toil1.DisplayToil();
 
     system("pause");
 }

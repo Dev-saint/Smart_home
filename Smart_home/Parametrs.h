@@ -6,9 +6,9 @@
 
 using namespace std;
 
-class parametrs
+class Parametrs
 {
-private:
+protected:
 	float air_temp; //Температура воздуха
 	float air_hum; //Влажность воздуха
 	float conc_co2; //Концентрация CO2
@@ -16,20 +16,20 @@ private:
 	int light; //Включение/выключение света
 	int vent_speed; //Скорость вентиляции
 
-	static parametrs* lastPar;  // Адрес последнего элемента списка
-	parametrs* prev;             // На предыдущий элемент списка
-	parametrs* next;             // На следующий элемент списка
+	/*static Parametrs* lastPar;  // Адрес последнего элемента списка
+	Parametrs* prev;             // На предыдущий элемент списка
+	Parametrs* next;             // На следующий элемент списка*/
 public:
 	//Конструктор
-	parametrs();
+	Parametrs();
 
 	//Конструктор с одним параметром
-	parametrs(float temp);
+	Parametrs(float temp);
 
 	//Конструктор с параметрами
-	parametrs(float temp, float hum, float co2, int bright, int l, int speed);
+	Parametrs(float temp, float hum, float co2, int bright, int l, int speed);
 
-	// Проверка числа на подходящее для температуры
+	/*// Проверка числа на подходящее для температуры
 	bool IsRightTemp(float temp);
 
 	// Проверка числа на подходящее для влажности
@@ -45,7 +45,7 @@ public:
 	bool IsRightLight(int l);
 
 	// Проверка числа на подходящее для скорости вентиляции
-	bool IsRightSpeed(int speed);
+	bool IsRightSpeed(int speed);*/
 
 	//Функции получения данных из полей
 	float Get_air_temp();
@@ -64,7 +64,7 @@ public:
 	void Get_vent_speed_link(int& speed);
 
 	//Деструктор
-	~parametrs();
+	~Parametrs();
 
 	//Функции инициализации полей
 	void Set_air_temp(float temp);
@@ -74,27 +74,36 @@ public:
 	void Set_light(int l);
 	void Set_vent_speed(int speed);
 
-	// Перегрузка оператора '+' (parametrs + float)
-	friend parametrs operator+(const parametrs& param, float temp);
+	// Ввод параметров
+	virtual void Inp() = 0;
+
+	// Перегрузка оператора '+' (Parametrs + float)
+	friend Parametrs operator+(const Parametrs& param, float temp);
 
 	// Перегрузка префиксного оператора '++'
-	parametrs& operator++();
+	Parametrs& operator++();
 
 	// Перегрузка постфиксного оператора '++'
-	parametrs operator++ (int);
+	Parametrs operator++ (int);
 
 	//Инициализация класса параметры
 	void Set_parametrs(float temp, float hum, float co2, int bright, int l, int speed);
 
-	// Добавление элемента в конец списка
+	/*// Добавление элемента в конец списка
 	void Add(void);
 
 	// Вывод на дисплей содержимого списка
 	static void reprint(void);
 	
 	// Создание нового списка
-	void NewList();
+	void NewList();*/
 
 	//Вывод параметров на экран
 	void Display();
+
+	// Повышение температуры на 5 градусов
+	float Temp_up();
+
+	// Проверка увеличения температуры, взаимодействие с пользователем
+	void Temp_check();
 };

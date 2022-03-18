@@ -1,7 +1,7 @@
 #include "Parametrs.h"
 
-// Проверка числа на подходящее для температуры
-bool parametrs::IsRightTemp(float temp)
+/*// Проверка числа на подходящее для температуры
+bool Parametrs::IsRightTemp(float temp)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -20,7 +20,7 @@ bool parametrs::IsRightTemp(float temp)
 }
 
 // Проверка числа на подходящее для влажности
-bool parametrs::IsRightHum(float hum)
+bool Parametrs::IsRightHum(float hum)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -39,7 +39,7 @@ bool parametrs::IsRightHum(float hum)
 }
 
 // Проверка числа на подходящее для концентрации CO2
-bool parametrs::IsRightCO2(float co2)
+bool Parametrs::IsRightCO2(float co2)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -58,7 +58,7 @@ bool parametrs::IsRightCO2(float co2)
 }
 
 // Проверка числа на подходящее для яркости света
-bool parametrs::IsRightBright(int bright)
+bool Parametrs::IsRightBright(int bright)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -77,7 +77,7 @@ bool parametrs::IsRightBright(int bright)
 }
 
 // Проверка числа на подходящее для флажка света
-bool parametrs::IsRightLight(int l)
+bool Parametrs::IsRightLight(int l)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -96,7 +96,7 @@ bool parametrs::IsRightLight(int l)
 }
 
 // Проверка числа на подходящее для скорости вентиляции
-bool parametrs::IsRightSpeed(int speed)
+bool Parametrs::IsRightSpeed(int speed)
 {
 	bool res = true;
 	try                                     // ищем исключения внутри этого блока и отправляем их в соответствующий обработчик catch
@@ -112,10 +112,10 @@ bool parametrs::IsRightSpeed(int speed)
 	}
 
 	return res;
-}
+}*/
 
 //Конструктор
-parametrs::parametrs()
+Parametrs::Parametrs()
 {
 	air_temp = 0;
 	air_hum = 0;
@@ -126,10 +126,10 @@ parametrs::parametrs()
 }
 
 //Конструктор с одним параметром
-parametrs::parametrs(float temp)
+Parametrs::Parametrs(float temp)
 {
-	if (IsRightTemp(temp))
-		air_temp = temp;
+	//if (IsRightTemp(temp))
+	air_temp = temp;
 	air_hum = 0;
 	conc_co2 = 0;
 	brightness = 0;
@@ -138,153 +138,186 @@ parametrs::parametrs(float temp)
 }
 
 //Конструктор с параметрами
-parametrs::parametrs(float temp, float hum, float co2, int bright, int l, int speed)
+Parametrs::Parametrs(float temp, float hum, float co2, int bright, int l, int speed)
 {
-	if (IsRightTemp(temp))
-		air_temp = temp;
-	if (IsRightHum(hum))
-		air_hum = hum;
-	if (IsRightCO2(co2))
-		conc_co2 = co2;
-	if (IsRightBright(bright))
-		brightness = bright;
-	if (IsRightLight(l))
-		light = l;
-	if (IsRightSpeed(speed))
-		vent_speed = speed;
+	//if (IsRightTemp(temp))
+	air_temp = temp;
+	//if (IsRightHum(hum))
+	air_hum = hum;
+	//if (IsRightCO2(co2))
+	conc_co2 = co2;
+	//if (IsRightBright(bright))
+	brightness = bright;
+	//if (IsRightLight(l))
+	light = l;
+	//if (IsRightSpeed(speed))
+	vent_speed = speed;
+}
+
+// Повышение температуры на 5 градусов
+float Parametrs::Temp_up()
+{
+	air_temp += 5;
+	cout << "Увеличение на 5 градусов" << endl;
+	return air_temp;
+}
+
+// Проверка увеличения температуры, взаимодействие с пользователем
+void Parametrs::Temp_check()
+{
+	float t;
+	t = Temp_up();
+	cout << "Температура изменилась. Текущая температура: " << air_temp << endl;
 }
 
 //Функции получения данных из полей
-float parametrs::Get_air_temp()
+float Parametrs::Get_air_temp()
 {
 	return this->air_temp;
 }
 
-float parametrs::Get_air_hum()
+float Parametrs::Get_air_hum()
 {
 	return this->air_hum;
 }
 
-float parametrs::Get_conc_co2()
+float Parametrs::Get_conc_co2()
 {
 	return this->conc_co2;
 }
 
-int parametrs::Get_brightness()
+int Parametrs::Get_brightness()
 {
 	return this->brightness;
 }
 
-int parametrs::Get_light()
+int Parametrs::Get_light()
 {
 	return this->light;
 }
 
-int parametrs::Get_vent_speed()
+int Parametrs::Get_vent_speed()
 {
 	return this->vent_speed;
 }
 
 //Функции получения данных из полей через ссылку
-void parametrs::Get_air_temp_link(float& temp)
+void Parametrs::Get_air_temp_link(float& temp)
 {
 	temp = this->air_temp;
 }
 
-void parametrs::Get_air_hum_link(float& hum)
+void Parametrs::Get_air_hum_link(float& hum)
 {
 	hum = this->air_hum;
 }
 
-void parametrs::Get_conc_co2_link(float& co2)
+void Parametrs::Get_conc_co2_link(float& co2)
 {
 	co2 = this->conc_co2;
 }
 
-void parametrs::Get_brightness_link(int& bright)
+void Parametrs::Get_brightness_link(int& bright)
 {
 	bright = this->brightness;
 }
 
-void parametrs::Get_light_link(int& l)
+void Parametrs::Get_light_link(int& l)
 {
 	l = this->light;
 }
 
-void parametrs::Get_vent_speed_link(int& speed)
+void Parametrs::Get_vent_speed_link(int& speed)
 {
 	speed = this->vent_speed;
 }
 
 //Функции инициализации полей
-void parametrs::Set_air_temp(float temp)
+void Parametrs::Set_air_temp(float temp)
 {
-	if (IsRightTemp(temp))
-		air_temp = temp;
+	//if (IsRightTemp(temp))
+	air_temp = temp;
 }
 
-void parametrs::Set_air_hum(float hum)
+void Parametrs::Set_air_hum(float hum)
 {
-	if (IsRightHum(hum))
-		air_hum = hum;
+	//if (IsRightHum(hum))
+	air_hum = hum;
 }
 
-void parametrs::Set_conc_co2(float co2)
+void Parametrs::Set_conc_co2(float co2)
 {
-	if (IsRightCO2(co2))
-		conc_co2 = co2;
+	//if (IsRightCO2(co2))
+	conc_co2 = co2;
 }
 
-void parametrs::Set_brightness(int bright)
+void Parametrs::Set_brightness(int bright)
 {
-	if (IsRightBright(bright))
-		brightness = bright;
+	//if (IsRightBright(bright))
+	brightness = bright;
 }
 
-void parametrs::Set_light(int l)
+void Parametrs::Set_light(int l)
 {
-	if (IsRightLight(l))
-		light = l;
+	//if (IsRightLight(l))
+	light = l;
 }
 
-void parametrs::Set_vent_speed(int speed)
+void Parametrs::Set_vent_speed(int speed)
 {
-	if (IsRightSpeed(speed))
-		vent_speed = speed;
+	//if (IsRightSpeed(speed))
+	vent_speed = speed;
+}
+
+// Ввод параметров
+void Parametrs::Inp()
+{
+	cout << "Введите температуру воздуха: ";
+	cin >> air_temp;
+	cout << "Введите влажность воздуха: ";
+	cin >> air_hum;
+	cout << "Введите концентрацию CO2: ";
+	cin >> conc_co2;
+	cout << "Введите яркость света: ";
+	cin >> brightness;
+	cout << "Введите флаг света: ";
+	cin >> light;
+	cout << "Введите скорость вентиляции: ";
+	cin >> vent_speed;
 }
 
 //Деструктор
-parametrs::~parametrs()
+Parametrs::~Parametrs()
 {
 	;
 }
 
 //Инициализация класса параметры
-void parametrs::Set_parametrs(float temp, float hum, float co2, int bright, int l, int speed)
+void Parametrs::Set_parametrs(float temp, float hum, float co2, int bright, int l, int speed)
 {
-	if (IsRightTemp(temp))
-		air_temp = temp;
-	if (IsRightHum(hum))
-		air_hum = hum;
-	if (IsRightCO2(co2))
-		conc_co2 = co2;
-	if (IsRightBright(bright))
-		brightness = bright;
-	if (IsRightLight(l))
-		light = l;
-	if (IsRightSpeed(speed))
-		vent_speed = speed;
+	//if (IsRightTemp(temp))
+	air_temp = temp;
+	//if (IsRightHum(hum))
+	air_hum = hum;
+	//if (IsRightCO2(co2))
+	conc_co2 = co2;
+	//if (IsRightBright(bright))
+	brightness = bright;
+	//if (IsRightLight(l))
+	light = l;
+	//if (IsRightSpeed(speed))
+	vent_speed = speed;
 }
 
-// Создание нового списка
-void parametrs::NewList()
+/*// Создание нового списка
+void Parametrs::NewList()
 {
 	lastPar = NULL;
 }
 
 
 // Добавление элемента в конец списка
-void parametrs::Add(void)
+void Parametrs::Add(void)
 {
 	if (lastPar == NULL)
 		this->prev = NULL;
@@ -298,9 +331,9 @@ void parametrs::Add(void)
 }
 
 // Вывод на дисплей содержимого списка
-void parametrs::reprint(void)
+void Parametrs::reprint(void)
 {
-	parametrs* uk;   // Вспомогательный указатель
+	Parametrs* uk;   // Вспомогательный указатель
 	uk = lastPar;
 	if (uk == NULL)
 	{
@@ -318,39 +351,39 @@ void parametrs::reprint(void)
 	}
 
 	cout << "\n" << endl;
-}
+}*/
 
-// Перегрузка оператора '+' (parametrs + float)
-parametrs operator+(const parametrs& param, float temp)
+// Перегрузка оператора '+' (Parametrs + float)
+/*Parametrs operator+(const Parametrs& param, float temp)
 {
 	if (param.air_temp + temp > 40)
 		return param;
 	else
 	{
-		parametrs tmp;
+		Parametrs tmp;
 		tmp = param;
 		tmp.Set_air_temp(param.air_temp + temp);
 		return tmp;
 	}
-}
+}*/
 
 // Перегрузка префиксного оператора '++'
-parametrs& parametrs::operator++()
+Parametrs& Parametrs::operator++()
 {
 	air_temp += 1;
 	return *this;
 }
 
 // Перегрузка постфиксного оператора '++'
-parametrs parametrs::operator++ (int)
+/*Parametrs Parametrs::operator++ (int)
 {
-	parametrs p1 = *this;
+	Parametrs p1 = *this;
 	++* this;
 	return p1;
-}
+}*/
 
 //Вывод параметров на экран
-void parametrs::Display()
+void Parametrs::Display()
 {
 	cout << endl << "Темература воздуха: " << air_temp << " °С" << endl;
 	cout << "Влажность воздуха: " << air_hum << " %" << endl;

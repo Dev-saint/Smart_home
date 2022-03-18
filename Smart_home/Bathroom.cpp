@@ -13,105 +13,110 @@ void menu_bath() // Функция вызова меню параметров для ванной
 }
 
 //Конструктор
-bathroom::bathroom()
+Bathroom::Bathroom()
 {
-    param_bath.Set_parametrs(0, 0, 0, 0, 0, 0);
+    air_temp = 0;
+    air_hum = 0;
+    conc_co2 = 0;
+    brightness = 0;
+    light = 0;
+    vent_speed = 0;
     flag_water = 0;
 }
 
 // Конструктор с одним параметром
-bathroom::bathroom(float temp)
+Bathroom::Bathroom(float temp) : Parametrs(temp)
 {
-    param_bath.Set_parametrs(temp, 0, 0, 0, 0, 0);
+    //param_bath.Set_parametrs(temp, 0, 0, 0, 0, 0);
     flag_water = 0;
 }
 
 //Конструктор с параметрами
-bathroom::bathroom(float temp, float hum, float co2, int bright, int l, int speed, int water)
+Bathroom::Bathroom(float temp, float hum, float co2, int bright, int l, int speed, int water) : Parametrs(temp, hum, co2, bright, l, speed)
 {
-    param_bath.Set_parametrs(temp, hum, co2, bright, l, speed);
+    //param_bath.Set_parametrs(temp, hum, co2, bright, l, speed);
     flag_water = water;
 }
 
 //Функции получения данных из полей
-float bathroom::Get_air_temp_bath()
+/*float Bathroom::Get_air_temp_bath()
 {
     return param_bath.Get_air_temp();
 }
 
-float bathroom::Get_air_hum_bath()
+float Bathroom::Get_air_hum_bath()
 {
     return param_bath.Get_air_hum();
 }
 
-float bathroom::Get_conc_co2_bath()
+float Bathroom::Get_conc_co2_bath()
 {
     return param_bath.Get_conc_co2();
 }
 
-int bathroom::Get_brightness_bath()
+int Bathroom::Get_brightness_bath()
 {
     return param_bath.Get_brightness();
 }
 
-int bathroom::Get_light_bath()
+int Bathroom::Get_light_bath()
 {
     return param_bath.Get_light();
 }
 
-int bathroom::Get_vent_speed_bath()
+int Bathroom::Get_vent_speed_bath()
 {
     return param_bath.Get_vent_speed();
-}
+}*/
 
-int bathroom::Get_flag_water()
+int Bathroom::Get_flag_water()
 {
     return this->flag_water;
 }
 
 //Функции инициализации полей
-void bathroom::Set_air_temp_bath(float temp)
+/*void Bathroom::Set_air_temp_bath(float temp)
 {
     param_bath.Set_air_temp(temp);
 }
 
-void bathroom::Set_air_hum_bath(float hum)
+void Bathroom::Set_air_hum_bath(float hum)
 {
     param_bath.Set_air_hum(hum);
 }
 
-void bathroom::Set_conc_co2_bath(float co2)
+void Bathroom::Set_conc_co2_bath(float co2)
 {
     param_bath.Set_conc_co2(co2);
 }
 
-void bathroom::Set_brightness_bath(int bright)
+void Bathroom::Set_brightness_bath(int bright)
 {
     param_bath.Set_brightness(bright);
 }
 
-void bathroom::Set_light_bath(int l)
+void Bathroom::Set_light_bath(int l)
 {
     param_bath.Set_light(l);
 }
 
-void bathroom::Set_vent_speed_bath(int speed)
+void Bathroom::Set_vent_speed_bath(int speed)
 {
     param_bath.Set_vent_speed(speed);
-}
+}*/
 
-void bathroom::Set_flag_water(int water)
+void Bathroom::Set_flag_water(int water)
 {
     flag_water = water;
 }
 
 //Деструктор
-bathroom::~bathroom()
+Bathroom::~Bathroom()
 {
 }
 
-//Инициализация класса ванная
-void bathroom::Set_parametrs_bath(float temp, float hum, float co2, int bright, int l, int speed, int water)
+/*//Инициализация класса ванная
+void Bathroom::Set_parametrs_bath(float temp, float hum, float co2, int bright, int l, int speed, int water)
 {
     param_bath.Set_air_temp(temp);
     param_bath.Set_air_hum(hum);
@@ -120,21 +125,21 @@ void bathroom::Set_parametrs_bath(float temp, float hum, float co2, int bright, 
     param_bath.Set_light(l);
     param_bath.Set_vent_speed(speed);
     flag_water = water;
-}
+}*/
 
 //Вывод параметров ванной на экран
-void bathroom::DisplayBath()
+void Bathroom::DisplayBath()
 {
-    cout << endl << "Темература воздуха в ванной: " << Get_air_temp_bath() << " °С" << endl;
-    cout << "Влажность воздуха в ванной: " << Get_air_hum_bath() << " %" << endl;
-    cout << "Концентрация CO2 в ванной: " << Get_conc_co2_bath() << " %" << endl;
-    cout << "Яркость света в ванной: " << Get_brightness_bath() << " %" << endl;
-    cout << "Флажок света в ванной: " << Get_light_bath() << endl;
-    cout << "Скорость вентиляции в ванной: " << Get_vent_speed_bath() << " %" << endl;
-    cout << "Флажок набора воды в ванной: " << Get_flag_water() << endl;
+    cout << endl << "Темература воздуха в ванной: " << air_temp << " °С" << endl;
+    cout << "Влажность воздуха в ванной: " << air_hum << " %" << endl;
+    cout << "Концентрация CO2 в ванной: " << conc_co2 << " %" << endl;
+    cout << "Яркость света в ванной: " << brightness << " %" << endl;
+    cout << "Флажок света в ванной: " << light << endl;
+    cout << "Скорость вентиляции в ванной: " << vent_speed << " %" << endl;
+    cout << "Флажок набора воды в ванной: " << flag_water << endl;
 }
 
-void bathroom::water_bath()   //Функция набора воды в ванную
+void Bathroom::water_bath()   //Функция набора воды в ванную
 {
     if (flag_water)
     {
@@ -144,11 +149,11 @@ void bathroom::water_bath()   //Функция набора воды в ванную
     }
 }
 
-//Дружественная функция задания температур классов toilet, kitchen, bedroom, bathroom
-void temp_set_all(toilet& toil, kitchen& kitch, bedroom& bed, bathroom& bath, float temp)
+/*//Дружественная функция задания температур классов Toilet, Kitchen, Bedroom, Bathroom
+void temp_set_all(Toilet& toil, Kitchen& kitch, Bedroom& bed, Bathroom& bath, float temp)
 {
     toil.param_toil->Set_air_temp(temp);
     kitch.param_kitch->Set_air_temp(temp);
     bed.param_bed.Set_air_temp(temp);
     bath.param_bath.Set_air_temp(temp);
-}
+}*/
